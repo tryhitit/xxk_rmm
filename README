@@ -19,8 +19,9 @@ Windows Service Support — Installs, starts, and stops as a native Windows serv
 Passive Mode (Reverse Connection) — Agent connects outbound to a management server, enabling access through NAT/firewalls without port forwarding
 Session-Aware Screen Capture — Spawns a child process in the active user session via WTSQueryUserToken / CreateProcessAsUser to capture the desktop correctly when running as SYSTEM
 Auto-restart Watchdog — Automatically respawns the child capture process if it dies
-![Google Logo](https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png)
-![Logo](./xxkrmm.png)
+
+![Logo](https://github.com/tryhitit/xxk_rmm/blob/main/xxkrmm.png)
+
 
 
 
