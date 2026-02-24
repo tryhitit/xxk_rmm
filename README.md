@@ -3,6 +3,7 @@ xxk rmm Agent is a self-contained Windows agent that enables remote administrati
 
 # Features
 Remote Desktop — Real-time screen capture streamed to the browser; supports adjustable JPEG quality and resolution scaling
+
 Remote Input Control — Full mouse (move, click, scroll) and keyboard control forwarded to the remote session
 Interactive Shell — Stateful command execution (maintains working directory across commands) with UTF-8 / GBK output decoding
 File Manager — Browse drives and directories, upload/download files, delete files and folders, execute files with optional UAC elevation
