@@ -1,0 +1,16 @@
+{
+  "web_addr": "0.0.0.0",
+  "web_port": "8080",
+  "web_password": "123456",
+  "default_client_port": "9000",
+  "default_client_pass": "123456",
+  "file_threshold": 50,
+  "temp_file_ttl": 120,
+  "clients": [
+   
+  ],
+  "groups": [
+    
+  ],
+  "db_path": "./rmm_data.db"
+}
