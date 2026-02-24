@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Me RMM Console</title>
+    <title>Xxk RMM Console</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -19,129 +19,56 @@
             --border-color: #e2e8f0;
             --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
         }
-
-        body { 
-            background: var(--bg-color); 
-            font-family: 'Inter', system-ui, -apple-system, sans-serif; 
-            height: 100vh; 
-            overflow: hidden; 
-            color: var(--text-main); 
-            font-size: 0.875rem; 
-        }
-
+        
+        body { background: var(--bg-color); font-family: 'Inter', system-ui, -apple-system, sans-serif; height: 100vh; overflow: hidden; color: var(--text-main); font-size: 0.875rem; }
+        
         /* Scrollbar */
         ::-webkit-scrollbar { width: 5px; height: 5px; }
         ::-webkit-scrollbar-track { background: transparent; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-
-        /* Common Components */
-        .btn { 
-            font-weight: 500; 
-            font-size: 0.85rem; 
-            padding: 0.375rem 0.75rem; 
-            border-radius: 6px; 
-        }
         
-        .form-control, .form-select { 
-            font-size: 0.85rem; 
-            border-radius: 6px; 
-            padding: 0.375rem 0.6rem; 
-            border-color: var(--border-color); 
-        }
-        
-        .form-select {
-            padding-right: 2rem !important;
-            background-position: right 0.5rem center;
-        }
-        
-        .form-control:focus, .form-select:focus { 
-            border-color: var(--primary-color); 
-            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1); 
-        }
-        
-        .card-custom { 
-            background: #fff; 
-            border-radius: 10px; 
-            border: 1px solid var(--border-color); 
-            box-shadow: var(--card-shadow); 
-            display: flex; 
-            flex-direction: column; 
-            flex: 1; 
-            overflow: hidden; 
-        }
+        /* General Components */
+        .btn { font-weight: 500; font-size: 0.85rem; padding: 0.375rem 0.75rem; border-radius: 6px; }
+        .form-control, .form-select { font-size: 0.85rem; border-radius: 6px; padding: 0.375rem 0.6rem; border-color: var(--border-color); }
+		.form-select {
+			padding-right: 2rem !important;
+			background-position: right 0.5rem center;
+		}
+        .form-control:focus, .form-select:focus { border-color: var(--primary-color); box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1); }
+        .card-custom { background: #fff; border-radius: 10px; border: 1px solid var(--border-color); box-shadow: var(--card-shadow); display: flex; flex-direction: column; flex: 1; overflow: hidden; }
 
         /* Sidebar */
-        .sidebar { 
-            background: var(--sidebar-bg); 
-            height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            border-right: 1px solid var(--border-color); 
-            width: var(--sidebar-width); 
-            z-index: 100; 
-        }
+        .sidebar { background: var(--sidebar-bg); height: 100vh; display: flex; flex-direction: column; border-right: 1px solid var(--border-color); width: var(--sidebar-width); z-index: 100; }
+        .sidebar-header { padding: 16px 20px; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 10px; height: 60px; }
+        .client-list-scroll { flex: 1; overflow-y: auto; padding: 0; }
         
-        .sidebar-header { 
-            padding: 16px 20px; 
-            border-bottom: 1px solid var(--border-color); 
-            display: flex; 
-            align-items: center; 
-            gap: 10px; 
-            height: 60px; 
-        }
-        
-        .client-list-scroll { 
-            flex: 1; 
-            overflow-y: auto; 
-            padding: 0; 
-        }
-
-        .group-header { 
-            padding: 8px 12px; 
-            background: #f8fafc; 
-            border-bottom: 1px solid #f1f5f9; 
-            font-size: 0.85rem; 
-            font-weight: 700; 
-            color: #64748b; 
-            display: flex; 
-            align-items: center; 
-            cursor: pointer; 
-            position: relative;
-        }
-        
-        .group-header:hover { 
-            background: #f1f5f9; 
-            color: var(--primary-color); 
-        }
-        
+        .group-header { padding: 8px 12px; background: #f8fafc; border-bottom: 1px solid #f1f5f9; font-size: 0.85rem; font-weight: 700; color: #64748b; display: flex; align-items: center; cursor: pointer; position: relative;}
+        .group-header:hover { background: #f1f5f9; color: var(--primary-color); }
         .group-actions {
-            opacity: 0;
-            transition: opacity 0.2s;
-            margin-left: auto;
-            display: flex;
-            align-items: center;
-        }
-        
-        .group-menu-trigger {
-            padding: 4px 12px; 
-            margin: -4px -8px -4px 0; 
-            cursor: pointer;
-            color: #94a3b8;
-            transition: color 0.2s;
-        }
-        
-        .group-menu-trigger:hover {
-            color: var(--primary-color);
-            background-color: rgba(0,0,0,0.05); 
-            border-radius: 4px;
-        }
-        
-        .group-node.root-virtual { border-bottom: 1px solid #f1f5f9; }
-        .group-header:hover .group-actions { opacity: 1; }
-        .drag-over { border: 2px dashed var(--primary-color); }
-
-        /* Client List Items */
+			opacity: 0;
+			transition: opacity 0.2s;
+			margin-left: auto;
+			display: flex;
+			align-items: center;
+		}
+		.group-menu-trigger {
+			padding: 4px 12px; 
+			margin: -4px -8px -4px 0; 
+			cursor: pointer;
+			color: #94a3b8;
+			transition: color 0.2s;
+		}
+		.group-menu-trigger:hover {
+			color: var(--primary-color);
+			background-color: rgba(0,0,0,0.05); 
+			border-radius: 4px;
+		}
+		.group-node.root-virtual {
+			border-bottom: 1px solid #f1f5f9;
+		}
+		.group-header:hover .group-actions { opacity: 1; }
+		.drag-over { border: 2px dashed var(--primary-color); }
         .client-item { 
             padding: 8px 8px 8px 32px; 
             border-bottom: 1px solid #f8fafc; 
@@ -151,140 +78,62 @@
             align-items: center; 
             height: 48px;
         }
-        
         .client-item:hover { background: #f1f5f9; }
-        .client-item.active { 
-            background: #eff6ff; 
-            border-left: 4px solid var(--primary-color); 
-            padding-left: 28px; 
-        }
-
-        .client-info-row { 
-            flex: 1; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            overflow: hidden; 
-            line-height: 1.2; 
-        }
+        .client-item.active { background: #eff6ff; border-left: 4px solid var(--primary-color); padding-left: 28px; /* Keep visual alignment */ }
         
-        .client-name { 
-            font-weight: 500; 
-            color: var(--text-main); 
-            font-size: 0.85rem; 
-            white-space: nowrap; 
-            overflow: hidden; 
-            text-overflow: ellipsis; 
-        }
+        .client-info-row { flex: 1; display: flex; flex-direction: column; justify-content: center; overflow: hidden; line-height: 1.2; }
+        .client-name { font-weight: 500; color: var(--text-main); font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .client-ip-id { font-size: 0.75rem; color: #94a3b8; font-family: monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         
-        .client-ip-id { 
-            font-size: 0.75rem; 
-            color: #94a3b8; 
-            font-family: monospace; 
-            white-space: nowrap; 
-            overflow: hidden; 
-            text-overflow: ellipsis; 
-        }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-right: 8px; }
+        .online { background: #10b981; } .offline { background: #cbd5e1; } .online-passive { background: #8b5cf6; }
 
-        .status-dot { 
-            width: 8px; 
-            height: 8px; 
-            border-radius: 50%; 
-            flex-shrink: 0; 
-            margin-right: 8px; 
-        }
-        .online { background: #10b981; } 
-        .offline { background: #cbd5e1; } 
-        .online-passive { background: #8b5cf6; }
-
+        /* Fix: Increase menu button click area */
         .client-menu-btn { 
             width: 32px; height: 32px; 
             display: flex; align-items: center; justify-content: center; 
             color: #94a3b8; border-radius: 4px; 
             opacity: 0; transition: all 0.2s; 
-            cursor: pointer;
+			cursor: pointer;
         }
-        
-        .client-menu-btn.show {
+		.client-menu-btn.show {
             background: #e2e8f0; 
             color: var(--text-main);
             opacity: 1;
         }
-        
         .client-item:hover .client-menu-btn { opacity: 1; }
         .client-menu-btn:hover { background: #e2e8f0; color: var(--text-main); }
 
-        .dropdown-menu-sm { 
-            font-size: 0.8rem; 
-            border: 1px solid var(--border-color); 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
-            padding: 4px 0; 
-        }
+        .dropdown-menu-sm { font-size: 0.8rem; border: 1px solid var(--border-color); box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 4px 0; }
         .dropdown-item { padding: 6px 16px; }
 
         /* Main Content */
         .main-content { flex: 1; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
-        .top-bar { 
-            height: 60px; 
-            border-bottom: 1px solid var(--border-color); 
-            background: #fff; 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            padding: 0 24px; 
-            flex-shrink: 0; 
-        }
+        .top-bar { height: 60px; border-bottom: 1px solid var(--border-color); background: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; flex-shrink: 0; }
         .workspace { padding: 16px; flex: 1; display: flex; flex-direction: column; overflow: hidden; }
 
         /* Tabs */
         .nav-tabs { border-bottom: 1px solid var(--border-color); padding: 0 16px; gap: 16px; background: #fff; }
-        .nav-link { 
-            border: none !important; 
-            padding: 12px 4px; 
-            color: var(--text-secondary); 
-            font-weight: 500; 
-            font-size: 0.9rem; 
-            position: relative; 
-            transition: 0.2s; 
-        }
+        .nav-link { border: none !important; padding: 12px 4px; color: var(--text-secondary); font-weight: 500; font-size: 0.9rem; position: relative; transition: 0.2s; }
         .nav-link:hover { color: var(--primary-color); }
         .nav-link.active { color: var(--primary-color); font-weight: 600; }
-        .nav-link.active::after { 
-            content: ''; 
-            position: absolute; 
-            bottom: 0; left: 0; 
-            width: 100%; height: 2px; 
-            background: var(--primary-color); 
-        }
+        .nav-link.active::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--primary-color); }
 
         /* Terminal */
         .terminal-window { 
-            background: #1e293b; color: #f8fafc; 
-            font-family: 'JetBrains Mono', 'Consolas', monospace; 
-            padding: 4px 12px 12px 12px;
-            flex: 1; overflow-y: auto; 
-            font-size: 0.85rem; line-height: 1.4; 
-            white-space: pre-wrap; word-break: break-all;
-        }
+			background: #1e293b; color: #f8fafc; 
+			font-family: 'JetBrains Mono', 'Consolas', monospace; 
+			padding: 4px 12px 12px 12px;
+			flex: 1; overflow-y: auto; 
+			font-size: 0.85rem; line-height: 1.4; 
+			white-space: pre-wrap; word-break: break-all;
+		}
 
         /* File Manager */
         .file-manager { display: flex; height: 100%; }
-        .file-tree { 
-            width: 220px; 
-            background: #f8fafc; 
-            border-right: 1px solid var(--border-color); 
-            padding: 12px; 
-            overflow-y: auto; 
-        }
+        .file-tree { width: 220px; background: #f8fafc; border-right: 1px solid var(--border-color); padding: 12px; overflow-y: auto; }
         .tree-section { margin-bottom: 16px; }
-        .tree-title { 
-            font-size: 0.7rem; 
-            font-weight: 700; 
-            color: #94a3b8; 
-            text-transform: uppercase; 
-            margin-bottom: 6px; 
-            padding-left: 8px; 
-        }
+        .tree-title { font-size: 0.7rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; margin-bottom: 6px; padding-left: 8px; }
         .tree-link { 
             display: flex; align-items: center; gap: 8px; 
             padding: 6px 10px; color: var(--text-secondary); 
@@ -293,16 +142,15 @@
         }
         .tree-link:hover { background: #e2e8f0; color: var(--text-main); }
         
-        /* File Management Action Button Row */
         .file-actions-cell { white-space: nowrap; }
 
         /* Batch Task */
         .batch-body { padding: 16px; flex: 1; overflow-y: auto; background: #fff; position: relative; }
         .batch-empty-state { 
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-            text-align: center; color: #cbd5e1; pointer-events: none;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-        }
+			position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
+			text-align: center; color: #cbd5e1; pointer-events: none;
+			display: flex; flex-direction: column; align-items: center; justify-content: center;
+		}
         .batch-item { animation: fadeIn 0.2s; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -338,21 +186,30 @@
 
         .batch-action-bar { padding: 8px 16px; background: #f8fafc; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; }
         .toast-container { position: fixed; top: 20px; right: 20px; z-index: 9999; }
-        
-        #globalConfirmModal { z-index: 1080 !important; }
-        .modal-backdrop.show:nth-of-type(2) { z-index: 1075 !important; }
-         
-        #groupRenameModal { z-index: 1090 !important; }
-        .modal-backdrop.show:nth-of-type(2) { z-index: 1085 !important; }
-        
-        .group-node { transition: all 0.2s; }
-        .group-children { 
-            margin-left: 18px; 
-            border-left: 1px solid #e2e8f0; 
-            display: block; 
-        }
-        .group-children.collapsed { display: none; }
-        img, img:not() { display: none !important; }
+		#globalConfirmModal {
+			z-index: 1080 !important; 
+		}
+		.modal-backdrop.show:nth-of-type(2) {
+			z-index: 1075 !important;
+		}
+		#groupRenameModal {
+			z-index: 1090 !important; 
+		}
+
+		.modal-backdrop.show:nth-of-type(2) {
+			z-index: 1085 !important;
+		}
+		
+		.group-node { transition: all 0.2s; }
+		.group-children { 
+			margin-left: 18px; 
+			border-left: 1px solid #e2e8f0; 
+			display: block;
+		}
+		.group-children.collapsed { display: none; }
+		img[src=""], img:not([src]) {
+			display: none !important;
+		}
     </style>
 </head>
 <body>
@@ -363,28 +220,28 @@
         <div class="sidebar">
             <div class="sidebar-header">
                 <i class="fas fa-network-wired text-primary fs-5"></i>
-                <h6 class="m-0 fw-bold">Me RMM <span class="badge bg-light text-secondary border ms-2 fw-normal">Pro</span></h6>
+                <h6 class="m-0 fw-bold">Xxk RMM <span class="badge bg-light text-secondary border ms-2 fw-normal">Pro</span></h6>
             </div>
             
             <div class="p-2 border-bottom">
-                <!-- Search Box -->
-                <div class="input-group input-group-sm mb-2">
-                    <span class="input-group-text bg-light border-end-0"><i class="fas fa-search text-muted"></i></span>
-                    <input type="text" id="clientSearchInput" class="form-control border-start-0 bg-light" placeholder="Search hosts..." onkeyup="filterClients()">
-                    <button class="btn btn-primary" onclick="showAddModal()"><i class="fas fa-plus"></i></button>
-                </div>
-                <!-- Status Filter and Refresh Button -->
-                <div class="d-flex gap-2">
-                    <select id="clientStatusFilter" class="form-select form-select-sm" onchange="filterClients()">
-                        <option value="all">All Status</option>
-                        <option value="online">Online Only</option>
-                        <option value="offline">Offline Only</option>
-                    </select>
-                    <button class="btn btn-light btn-sm border text-secondary" title="Refresh List" onclick="loadClients(this)">
+				<!-- Search Box -->
+				<div class="input-group input-group-sm mb-2">
+					<span class="input-group-text bg-light border-end-0"><i class="fas fa-search text-muted"></i></span>
+					<input type="text" id="clientSearchInput" class="form-control border-start-0 bg-light" placeholder="Search hosts..." onkeyup="filterClients()">
+					<button class="btn btn-primary" onclick="showAddModal()"><i class="fas fa-plus"></i></button>
+				</div>
+				<!-- Status filter and refresh button -->
+				<div class="d-flex gap-2">
+					<select id="clientStatusFilter" class="form-select form-select-sm" onchange="filterClients()">
+						<option value="all">All Status</option>
+						<option value="online">Online Only</option>
+						<option value="offline">Offline Only</option>
+					</select>
+					<button class="btn btn-light btn-sm border text-secondary" title="Refresh List" onclick="loadClients(this)">
                         <i class="fas fa-sync-alt"></i>
                     </button>
-                </div>
-            </div>
+				</div>
+			</div>
 
             <div id="clientListArea" class="client-list-scroll custom-scroll">
                 <!-- Clients will be loaded here -->
@@ -396,8 +253,8 @@
                     <label class="form-check-label text-muted" for="selectAllClients">Select All</label>
                 </div>
                 <div>
-                    <button class="btn btn-sm btn-light text-secondary" title="Collapse/Expand All" onclick="toggleAllGroups()"><i class="fas fa-compress-arrows-alt"></i></button>
-                    <button class="btn btn-sm btn-light text-primary" title="Device Ledger" onclick="openLedgerModal()"><i class="fas fa-table"></i></button>
+					<button class="btn btn-sm btn-light text-secondary" title="Collapse/Expand All" onclick="toggleAllGroups()"><i class="fas fa-compress-arrows-alt"></i></button>
+					<button class="btn btn-sm btn-light text-primary" title="Device Inventory" onclick="openLedgerModal()"><i class="fas fa-table"></i></button>
                     <button class="btn btn-sm btn-light text-danger" title="Delete Selected" onclick="batchDeleteClients()"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </div>
@@ -424,30 +281,30 @@
                 </div>
                 <div class="d-flex gap-2">
                      <button class="btn btn-light border d-flex align-items-center gap-2" data-bs-toggle="dropdown">
-                        <i class="fas fa-history text-secondary"></i> 
-                        <span>Tasks</span>
-                        <span id="globalTaskCount" class="badge rounded-pill bg-danger bg-opacity-75 shadow-sm" style="display:none; font-weight: 500;">0</span>
-                    </button>
+						<i class="fas fa-history text-secondary"></i> 
+						<span>Tasks</span>
+						<span id="globalTaskCount" class="badge rounded-pill bg-danger bg-opacity-75 shadow-sm" style="display:none; font-weight: 500;">0</span>
+					</button>
                     <div class="dropdown-menu dropdown-menu-end shadow border-0 p-0" style="width: 300px">
                         <div class="p-2 border-bottom bg-light fw-bold small">Background Task Center</div>
                         <div id="ongoingTaskList" style="max-height: 300px; overflow-y: auto;">
                             <div class="p-3 text-center text-muted small">No running tasks</div>
                         </div>
                     </div>
-                    <button class="btn btn-light border" onclick="new bootstrap.Modal('#cfgModal').show()"><i class="fas fa-cog"></i> Config</button>
+                    <button class="btn btn-light border" onclick="new bootstrap.Modal('#cfgModal').show()"><i class="fas fa-cog"></i> Settings</button>
                 </div>
             </div>
 
             <div class="workspace">
                 <div class="card-custom">
                     <ul class="nav nav-tabs" id="mainTab">
-                        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#tab-screen">Screen</a></li>
+                        <li class="nav-item"><a class="nav-link active" data-bs-toggle="tab" href="#tab-screen">Desktop</a></li>
                         <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-cmd">Terminal</a></li>
-                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-process">Processes</a></li>
+                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-process">Process</a></li>
                         <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-files">Files</a></li>
                         <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-batch">Batch</a></li>
                         <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-usb">USB</a></li>
-                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-sysinfo">SysInfo</a></li>
+                        <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-sysinfo">Info</a></li>
                         <li class="nav-item"><a class="nav-link" data-bs-toggle="tab" href="#tab-functions">Functions</a></li>
                     </ul>
 
@@ -455,85 +312,82 @@
                         
                         <!-- Screen -->
                         <div class="tab-pane fade show active h-100" id="tab-screen">
-                            <div class="d-flex flex-column h-100">
-                                
-                                <!-- Top Toolbar -->
-                                <div class="p-2 border-bottom bg-white d-flex justify-content-between align-items-center flex-shrink-0">
-                                    <div class="d-flex gap-2">
-                                        <button class="btn btn-success btn-sm" id="btnStartMonitor" onclick="toggleScreen(true)" disabled>
-                                            <i class="fas fa-play me-1"></i> Start
-                                        </button>
-                                        <button class="btn btn-danger btn-sm" onclick="toggleScreen(false)">
-                                            <i class="fas fa-stop me-1"></i> Stop
-                                        </button>
-                                        <div class="vr my-1"></div>
-                                        <span class="badge bg-secondary d-flex align-items-center" id="screenStatus">Stopped</span>
-                                    </div>
-                                    <div class="d-flex gap-2 align-items-center">
-                                        <div class="form-check form-switch m-0">
-                                            <input class="form-check-input" type="checkbox" id="controlToggle" disabled>
-                                            <label class="form-check-label small" for="controlToggle">Key/Mouse Control</label>
-                                        </div>
-                                        <select id="qualitySelect" class="form-select form-select-sm" style="width: auto;" onchange="manualQualityChange()">
-                                                <option value="auto">⚡ Auto</option>
-                                                <option value="low">🚀 Smooth (30% / 0.5x)</option>
-                                                <option value="medium">⚖️ Standard (50% / 0.8x)</option>
-                                                <option value="high" selected>HD High Def (80% / 1.0x)</option>
-                                                <option value="ultra">💎 Original (95% / 1.0x)</option>
-                                        </select>
-                                    </div>
-                                </div>
+						<div class="d-flex flex-column h-100">
+        
+        <!-- Top Toolbar -->
+        <div class="p-2 border-bottom bg-white d-flex justify-content-between align-items-center flex-shrink-0">
+            <div class="d-flex gap-2">
+                <button class="btn btn-success btn-sm" id="btnStartMonitor" onclick="toggleScreen(true)" disabled>
+                    <i class="fas fa-play me-1"></i> Start
+                </button>
+                <button class="btn btn-danger btn-sm" onclick="toggleScreen(false)">
+                    <i class="fas fa-stop me-1"></i> Stop
+                </button>
+                <div class="vr my-1"></div>
+                <span class="badge bg-secondary d-flex align-items-center" id="screenStatus">Stopped</span>
+            </div>
+            <div class="d-flex gap-2 align-items-center">
+				<div class="form-check form-switch m-0">
+                    <input class="form-check-input" type="checkbox" id="controlToggle" disabled>
+                    <label class="form-check-label small" for="controlToggle">Control</label>
+                </div>
+				<select id="qualitySelect" class="form-select form-select-sm" style="width: auto;" onchange="manualQualityChange()">
+						<option value="auto">⚡ Auto</option>
+						<option value="low">🚀 Smooth (30% / 0.5x)</option>
+						<option value="medium">⚖️ Standard (50% / 0.8x)</option>
+						<option value="high" selected>HD High (80% / 1.0x)</option>
+						<option value="ultra">💎 Original (95% / 1.0x)</option>
+				</select>
+            </div>
+        </div>
 
-                                <!-- Screen Display Area -->
-                                <!-- flex-fill now takes effect relative to the parent flex container, automatically occupying all remaining height -->
-                                <div class="flex-fill bg-light d-flex justify-content-center align-items-center overflow-hidden position-relative" 
-                                     id="screenContainer" 
-                                     tabindex="0"
-                                     style="background-color: #2c2c2c;"> <!-- Add background color to easily see the area -->
-                                    
-                                    <div id="screenPlaceholder" class="text-secondary text-center">
-                                        <i class="fas fa-desktop fs-1 mb-3 opacity-25"></i>
-                                        <div>Click Start to monitor</div>
-                                    </div>
-                                    
-                                    <img id="screenDisplay" src="" 
-                                         style="display:none; max-width: 100%; max-height: 100%; box-shadow: 0 0 20px rgba(0,0,0,0.1);" 
-                                         draggable="false"  
-                                         oncontextmenu="return false;"
-                                         onerror="this.style.display='none';"
-                                         onload="if(this.src && this.src.length > 100) { this.style.display='block'; document.getElementById('screenPlaceholder').style.display='none'; }">
-                                </div>
-                            </div>
-                        </div>
+        <!-- Screen Display Area -->
+        <div class="flex-fill bg-light d-flex justify-content-center align-items-center overflow-hidden position-relative" 
+             id="screenContainer" 
+             tabindex="0"
+             style="background-color: #2c2c2c;">
+            
+            <div id="screenPlaceholder" class="text-secondary text-center">
+                <i class="fas fa-desktop fs-1 mb-3 opacity-25"></i>
+                <div>Click Start to Monitor</div>
+            </div>
+            
+            <img id="screenDisplay" src="" 
+				 style="display:none; max-width: 100%; max-height: 100%; box-shadow: 0 0 20px rgba(0,0,0,0.1);" 
+				 draggable="false"  
+				 oncontextmenu="return false;"
+				 onerror="this.style.display='none';"
+				 onload="if(this.src && this.src.length > 100) { this.style.display='block'; document.getElementById('screenPlaceholder').style.display='none'; }">
+        </div>
+
+    </div>
+</div>
 
                         <!-- CMD -->
                         <div class="tab-pane fade h-100" id="tab-cmd">
-                             <div class="d-flex flex-column h-100">
-                                <!-- Terminal Window: remove excess whitespace, compact font -->
-                                <div id="termOutput" class="terminal-window"><div>Waiting for command input...</div></div>
-                                <!-- Input Area: use small size components, reduce padding -->
-                                <div class="p-1 bg-light border-top">
-                                    <div class="input-group input-group-sm">
-                                        <span class="input-group-text bg-dark text-light border-0 font-monospace" id="cmdPrompt">C:\></span>
-                                        <input type="text" id="cmdInput" class="form-control font-monospace" onkeypress="if(event.key==='Enter') sendCmd()">
-                                        <button class="btn btn-primary" onclick="sendCmd()">Send</button>
-                                    </div>
-                                </div>
-                             </div>
-                        </div>
+							 <div class="d-flex flex-column h-100">
+								<div id="termOutput" class="terminal-window"><div>Waiting for command input...</div></div>
+								<div class="p-1 bg-light border-top">
+									<div class="input-group input-group-sm">
+										<span class="input-group-text bg-dark text-light border-0 font-monospace" id="cmdPrompt">C:\></span>
+										<input type="text" id="cmdInput" class="form-control font-monospace" onkeypress="if(event.key==='Enter') sendCmd()">
+										<button class="btn btn-primary" onclick="sendCmd()">Send</button>
+									</div>
+								</div>
+							 </div>
+						</div>
 
                         <!-- Files -->
                         <div class="tab-pane fade h-100" id="tab-files">
                             <div class="file-manager">
                                 <div class="file-tree">
                                     <div class="tree-section">
-                                        <div class="tree-title">Drives</div>
-                                        <!-- Add ID to the container, show C and D by default for offline or initial status -->
-                                        <div id="driveListContainer">
-                                            <a class="tree-link" onclick="forceCd('C:\\\\')"><i class="fas fa-hdd text-secondary"></i> Local Disk (C:)</a>
-                                            <a class="tree-link" onclick="forceCd('D:\\\\')"><i class="fas fa-hdd text-secondary"></i> Local Disk (D:)</a>
-                                        </div>
-                                    </div>
+										<div class="tree-title">Drives</div>
+										<div id="driveListContainer">
+											<a class="tree-link" onclick="forceCd('C:\\\\')"><i class="fas fa-hdd text-secondary"></i> Local Disk (C:)</a>
+											<a class="tree-link" onclick="forceCd('D:\\\\')"><i class="fas fa-hdd text-secondary"></i> Local Disk (D:)</a>
+										</div>
+									</div>
                                     <div class="tree-section">
                                         <div class="tree-title">Quick Access</div>
                                         <a class="tree-link" onclick="forceCd('%USERPROFILE%\\\\Desktop')"><i class="fas fa-desktop text-primary"></i> Desktop</a>
@@ -556,13 +410,11 @@
                                         </div>
                                         <button class="btn btn-light btn-sm border" onclick="refreshFiles()"><i class="fas fa-sync-alt"></i></button>
                                         <input type="file" id="upFile" style="display:none" onchange="doUpload()">
-                                        <!--Button text wrap issue -->
                                         <button class="btn btn-primary btn-sm text-nowrap" onclick="document.getElementById('upFile').click()"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
                                     </div>
                                     <div class="flex-fill overflow-auto">
                                         <table class="table table-hover table-sm mb-0 align-middle">
-                                            <!--Action column width, prevent wrap -->
-                                            <thead class="table-light sticky-top"><tr><th class="ps-3">Name</th><th width="100">Size</th><th style="width: 150px; min-width: 150px;" class="text-end pe-3">Actions</th></tr></thead>
+                                            <thead class="table-light sticky-top"><tr><th class="ps-3">Name</th><th width="100">Size</th><th style="width: 150px; min-width: 150px;" class="text-end pe-3">Action</th></tr></thead>
                                             <tbody id="fileTableBody"></tbody>
                                         </table>
                                     </div>
@@ -603,11 +455,11 @@
                                             <div class="p-3 border-top bg-light">
                                                 <div class="row g-2 align-items-center">
                                                     <div class="col-auto"><small class="text-muted fw-bold">Settings:</small></div>
-                                                    <div class="col"><div class="input-group input-group-sm"><span class="input-group-text">Threshold MB</span><input type="number" id="batchFileThreshold" class="form-control" value="{{.FileThreshold}}"></div></div>
-                                                    <div class="col"><div class="input-group input-group-sm"><span class="input-group-text">Cache Min</span><input type="number" id="tempFileTTL" class="form-control" value="{{.TempFileTTL}}"></div></div>
+                                                    <div class="col"><div class="input-group input-group-sm"><span class="input-group-text">Threshold(MB)</span><input type="number" id="batchFileThreshold" class="form-control" value="{{.FileThreshold}}"></div></div>
+                                                    <div class="col"><div class="input-group input-group-sm"><span class="input-group-text">Cache(Min)</span><input type="number" id="tempFileTTL" class="form-control" value="{{.TempFileTTL}}"></div></div>
                                                     <div class="col-auto"><button class="btn btn-primary btn-sm text-nowrap" onclick="saveServerSettings()">
-                                                        <i class="fas fa-save me-1"></i> Save
-                                                    </button></div>
+														<i class="fas fa-save me-1"></i> Save
+													</button></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -638,7 +490,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <label class="filter-label">Keyword</label>
-                                            <input type="text" id="usbKeyword" class="form-control form-control-sm" placeholder="Device name / Serial...">
+                                            <input type="text" id="usbKeyword" class="form-control form-control-sm" placeholder="Device Name / Serial...">
                                         </div>
                                         <div class="col-md-4 text-end">
                                             <button class="btn btn-primary btn-sm me-1" onclick="usbPage=1; loadUSBRecords()"><i class="fas fa-search me-1"></i> Search</button>
@@ -658,7 +510,7 @@
                                 <div class="p-2 border-top bg-light d-flex justify-content-between align-items-center">
                                     <small class="text-muted ms-2" id="usbPageInfo">Page 1</small>
                                     <div class="d-flex gap-2">
-                                        <select class="form-select form-select-sm w-auto" id="usbPageSize" onchange="usbPage=1; loadUSBRecords()"><option value="20">20 items</option><option value="50">50 items</option><option value="100">100 items</option></select>
+                                        <select class="form-select form-select-sm w-auto" id="usbPageSize" onchange="usbPage=1; loadUSBRecords()"><option value="20">20 rows</option><option value="50">50 rows</option><option value="100">100 rows</option></select>
                                         <div class="btn-group btn-group-sm"><button class="btn btn-white border" onclick="changeUsbPage(-1)"><</button><button class="btn btn-white border" onclick="changeUsbPage(1)">></button></div>
                                     </div>
                                 </div>
@@ -683,7 +535,7 @@
                                     </div>
                                     <div class="col-lg-3 col-md-6">
                                         <div class="sys-card">
-                                            <div class="sys-label"><i class="fab fa-windows me-1"></i> OS</div>
+                                            <div class="sys-label"><i class="fab fa-windows me-1"></i> System</div>
                                             <div class="sys-value" id="osInfo">---</div>
                                         </div>
                                     </div>
@@ -721,7 +573,7 @@
                                 </div>
                                 <div class="flex-fill overflow-auto">
                                     <table class="table table-hover table-sm mb-0">
-                                        <thead class="table-light sticky-top"><tr><th class="ps-3">PID</th><th>Name</th><th>Memory (MB)</th><th class="text-end pe-3">Actions</th></tr></thead>
+                                        <thead class="table-light sticky-top"><tr><th class="ps-3">PID</th><th>Name</th><th>Memory (MB)</th><th class="text-end pe-3">Action</th></tr></thead>
                                         <tbody id="psTableBody"></tbody>
                                     </table>
                                 </div>
@@ -738,7 +590,7 @@
                                     <div class="func-btn" onclick="execFunction('disable_usb')"><i class="fas fa-ban text-warning"></i><span>Disable USB</span></div>
                                     <div class="func-btn" onclick="execFunction('enable_printer')"><i class="fas fa-print text-success"></i><span>Enable Printer</span></div>
                                     <div class="func-btn" onclick="execFunction('disable_printer')"><i class="fas fa-ban text-warning"></i><span>Disable Printer</span></div>
-                                    <div class="func-btn danger" onclick="execFunction('restart')"><i class="fas fa-redo"></i><span>Restart System</span></div>
+                                    <div class="func-btn danger" onclick="execFunction('restart')"><i class="fas fa-redo"></i><span>Reboot System</span></div>
                                     <div class="func-btn danger" onclick="execFunction('shutdown')"><i class="fas fa-power-off"></i><span>Shutdown Now</span></div>
                                 </div>
                             </div>
@@ -751,187 +603,25 @@
 </div>
 
 <div class="toast-container"></div>
-
 <!-- Upload Modal, Large File Modal, Add/Edit/Cfg/Group Modals -->
-<div class="modal fade" id="uploadModal" data-bs-backdrop="static">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-                <h6 class="fw-bold mb-3">Uploading File</h6>
-                <div class="d-flex justify-content-between mb-1 small">
-                    <span id="uploadFileName"></span>
-                    <span id="uploadPercent">0%</span>
-                </div>
-                <div class="progress mb-2" style="height:6px">
-                    <div id="uploadProgressBar" class="progress-bar"></div>
-                </div>
-                <div class="text-center small text-muted" id="uploadSizeInfo"></div>
-                <button class="btn btn-sm btn-outline-danger w-100 mt-3" onclick="cancelUpload()">Cancel</button>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="modal fade" id="uploadModal" data-bs-backdrop="static"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-body"><h6 class="fw-bold mb-3">Uploading File</h6><div class="d-flex justify-content-between mb-1 small"><span id="uploadFileName"></span><span id="uploadPercent">0%</span></div><div class="progress mb-2" style="height:6px"><div id="uploadProgressBar" class="progress-bar"></div></div><div class="text-center small text-muted" id="uploadSizeInfo"></div><button class="btn btn-sm btn-outline-danger w-100 mt-3" onclick="cancelUpload()">Cancel</button></div></div></div></div>
 
-<div class="modal fade" id="largeFileModal" data-bs-backdrop="static">
-    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header py-2">
-                <h6 class="m-0 fw-bold">Rapid Distribution</h6>
-            </div>
-            <div class="modal-body p-0">
-                <div id="stageUploadSection" class="p-4 text-center">
-                    <h6 class="mb-3 text-muted">Uploading to server...</h6>
-                    <div class="progress" style="height:10px">
-                        <div id="serverUploadBar" class="progress-bar progress-bar-striped progress-bar-animated"></div>
-                    </div>
-                </div>
-                <div id="clientPullSection" style="display:none">
-                    <table class="table table-sm mb-0">
-                        <thead class="bg-light sticky-top">
-                            <tr>
-                                <th class="ps-3">Host</th>
-                                <th width="40%">Progress</th>
-                                <th>Status</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody id="largeFileTableBody"></tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="modal-footer py-1 bg-light">
-                <button class="btn btn-primary btn-sm" data-bs-dismiss="modal" id="btnHideTask">Hide</button>
-                <button class="btn btn-outline-danger btn-sm" onclick="cancelAllLargeFile()" id="btnCancelTask">Cancel All</button>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="modal fade" id="largeFileModal" data-bs-backdrop="static"><div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable"><div class="modal-content"><div class="modal-header py-2"><h6 class="m-0 fw-bold">Fast Distribution</h6></div><div class="modal-body p-0"><div id="stageUploadSection" class="p-4 text-center"><h6 class="mb-3 text-muted">Uploading to Server...</h6><div class="progress" style="height:10px"><div id="serverUploadBar" class="progress-bar progress-bar-striped progress-bar-animated"></div></div></div><div id="clientPullSection" style="display:none"><table class="table table-sm mb-0"><thead class="bg-light sticky-top"><tr><th class="ps-3">Host</th><th width="40%">Progress</th><th>Status</th><th></th></tr></thead><tbody id="largeFileTableBody"></tbody></table></div></div><div class="modal-footer py-1 bg-light"><button class="btn btn-primary btn-sm" data-bs-dismiss="modal" id="btnHideTask">Hide</button><button class="btn btn-outline-danger btn-sm" onclick="cancelAllLargeFile()" id="btnCancelTask">Cancel All</button></div></div></div></div>
 
 <!-- Add Modal -->
-<div class="modal fade" id="addModal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h6 class="modal-title fw-bold" id="modalTitle">Add Host</h6>
-                <button class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <input type="hidden" id="editingIp">
-                <input type="hidden" id="editMode">
-                <div class="mb-2">
-                    <label class="small text-muted">IP:Port</label>
-                    <input id="addIp" class="form-control">
-                </div>
-                <div class="mb-2" id="idDisplayRow" style="display:none">
-                    <label class="small text-muted">ID</label>
-                    <input id="addId" class="form-control bg-light" readonly>
-                </div>
-                <div class="mb-2">
-                    <label class="small text-muted">Alias</label>
-                    <input id="addAlias" class="form-control">
-                </div>
-                <div class="mb-2">
-                    <label class="small text-muted">Group</label>
-                    <select id="addGroup" class="form-select"></select>
-                </div>
-                <div class="mb-2">
-                    <label class="small text-muted">Password</label>
-                    <input id="addPass" class="form-control" value="{{.DefaultPass}}">
-                </div>
-            </div>
-            <div class="modal-footer py-2">
-                <button class="btn btn-primary w-100" onclick="saveClient()">Save</button>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="modal fade" id="addModal"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header"><h6 class="modal-title fw-bold" id="modalTitle">Add Host</h6><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><input type="hidden" id="editingIp"><input type="hidden" id="editMode"><div class="mb-2"><label class="small text-muted">IP:Port</label><input id="addIp" class="form-control"></div><div class="mb-2" id="idDisplayRow" style="display:none"><label class="small text-muted">ID</label><input id="addId" class="form-control bg-light" readonly></div><div class="mb-2"><label class="small text-muted">Alias</label><input id="addAlias" class="form-control"></div><div class="mb-2"><label class="small text-muted">Group</label><select id="addGroup" class="form-select"></select></div><div class="mb-2"><label class="small text-muted">Password</label><input id="addPass" class="form-control" value="{{.DefaultPass}}"></div></div><div class="modal-footer py-2"><button class="btn btn-primary w-100" onclick="saveClient()">Save</button></div></div></div></div>
 
-<div class="modal fade" id="globalConfirmModal">
-    <div class="modal-dialog modal-sm modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body text-center py-4">
-                <div id="globalConfirmMsg" class="fw-bold mb-3"></div>
-                <div class="d-flex gap-2 justify-content-center">
-                    <button class="btn btn-light btn-sm" data-bs-dismiss="modal">Cancel</button>
-                    <button class="btn btn-danger btn-sm" id="globalConfirmBtn">Confirm</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="modal fade" id="globalConfirmModal"><div class="modal-dialog modal-sm modal-dialog-centered"><div class="modal-content"><div class="modal-body text-center py-4"><div id="globalConfirmMsg" class="fw-bold mb-3"></div><div class="d-flex gap-2 justify-content-center"><button class="btn btn-light btn-sm" data-bs-dismiss="modal">Cancel</button><button class="btn btn-danger btn-sm" id="globalConfirmBtn">Confirm</button></div></div></div></div></div>
 
-<div class="modal fade" id="groupModal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header py-2">
-                <h6 class="modal-title fw-bold">Group</h6>
-                <button class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <div class="input-group mb-3">
-                    <input id="newGroupName" class="form-control" placeholder="New Group Name">
-                    <button class="btn btn-primary" onclick="addGroup()">+</button>
-                </div>
-                <div id="groupList" class="list-group list-group-flush border rounded"></div>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="modal fade" id="groupModal"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header py-2"><h6 class="modal-title fw-bold">Group</h6><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="input-group mb-3"><input id="newGroupName" class="form-control" placeholder="New Group Name"><button class="btn btn-primary" onclick="addGroup()">+</button></div><div id="groupList" class="list-group list-group-flush border rounded"></div></div></div></div></div>
 
-<div class="modal fade" id="cfgModal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header py-2">
-                <h6 class="modal-title fw-bold">Generate Config</h6>
-                <button class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row g-2 mb-2">
-                    <div class="col-6">
-                        <small>Port</small>
-                        <input id="cfgPort" class="form-control" value="{{.DefaultPort}}">
-                    </div>
-                    <div class="col-6">
-                        <small>Password</small>
-                        <input id="cfgPass" class="form-control" value="{{.DefaultPass}}">
-                    </div>
-                </div>
-                <div class="form-check mb-2">
-                    <input type="checkbox" id="cfgAutostart" class="form-check-input">
-                    <label class="form-check-label small">Auto Install Service</label>
-                </div>
-                <div class="form-check">
-                    <input type="checkbox" id="cfgPassiveMode" class="form-check-input">
-                    <label class="form-check-label small">Passive Mode</label>
-                </div>
-                <div id="passiveModeSettings" style="display:none" class="mt-2 ps-2 border-start">
-                    <div class="mb-1">
-                        <small>Server IP</small>
-                        <input id="cfgServerAddr" class="form-control form-control-sm">
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-6">
-                            <small>Web Port</small>
-                            <input id="cfgServerPort" class="form-control form-control-sm" value="8080">
-                        </div>
-                        <div class="col-6">
-                            <small>Server Password</small>
-                            <input id="cfgServerPass" class="form-control form-control-sm" value="{{.DefaultPass}}">
-                        </div>
-                    </div>
-                    <div class="mt-2">
-                        <small>Passive Mode Reconnect Interval (sec)</small>
-                        <input id="cfgCheckInterval" type="number" class="form-control form-control-sm" value="10" min="5">
-                        <div class="text-muted" style="font-size: 0.7rem;">Recommended 10-30 seconds. Smaller values allow faster recovery after server restart.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer py-2">
-                <button class="btn btn-success w-100" onclick="dlCfg()">Download</button>
-            </div>
-        </div>
-    </div>
-</div>
+<div class="modal fade" id="cfgModal"><div class="modal-dialog modal-dialog-centered"><div class="modal-content"><div class="modal-header py-2"><h6 class="modal-title fw-bold">Generate Config</h6><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="row g-2 mb-2"><div class="col-6"><small>Port</small><input id="cfgPort" class="form-control" value="{{.DefaultPort}}"></div><div class="col-6"><small>Password</small><input id="cfgPass" class="form-control" value="{{.DefaultPass}}"></div></div><div class="form-check mb-2"><input type="checkbox" id="cfgAutostart" class="form-check-input"><label class="form-check-label small">Auto Install Service</label></div><div class="form-check"><input type="checkbox" id="cfgPassiveMode" class="form-check-input"><label class="form-check-label small">Passive Mode</label></div><div id="passiveModeSettings" style="display:none" class="mt-2 ps-2 border-start"><div class="mb-1"><small>Server IP</small><input id="cfgServerAddr" class="form-control form-control-sm"></div><div class="row g-2"><div class="col-6"><small>Web Port</small><input id="cfgServerPort" class="form-control form-control-sm" value="8080"></div><div class="col-6"><small>Server Password</small><input id="cfgServerPass" class="form-control form-control-sm" value="{{.DefaultPass}}"></div></div>
+	<div class="mt-2">
+		<small>Passive Reconnect Interval (s)</small>
+		<input id="cfgCheckInterval" type="number" class="form-control form-control-sm" value="10" min="5">
+		<div class="text-muted" style="font-size: 0.7rem;">Recommended 10-30s. Smaller values recover faster after server restart.</div>
+	</div>
+</div></div><div class="modal-footer py-2"><button class="btn btn-success w-100" onclick="dlCfg()">Download</button></div></div></div></div>
 
 <!-- Group Rename Modal -->
 <div class="modal fade" id="groupRenameModal" data-bs-backdrop="static" tabindex="-1">
@@ -949,7 +639,7 @@
                 </div>
                 <div class="mb-3">
                     <label class="form-label small fw-bold">New Name</label>
-                    <input type="text" class="form-control" id="renameNewName" placeholder="Please enter new name">
+                    <input type="text" class="form-control" id="renameNewName" placeholder="Enter new name">
                 </div>
             </div>
             <div class="modal-footer py-1">
@@ -959,7 +649,6 @@
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="groupActionModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-sm">
         <div class="modal-content">
@@ -973,7 +662,7 @@
                 
                 <div class="mb-3">
                     <label class="form-label small text-muted">Group Name</label>
-                    <input type="text" class="form-control" id="ga_nameInput" placeholder="Please enter name" onkeypress="if(event.key==='Enter') submitGroupAction()">
+                    <input type="text" class="form-control" id="ga_nameInput" placeholder="Enter name" onkeypress="if(event.key==='Enter') submitGroupAction()">
                 </div>
             </div>
             <div class="modal-footer py-1">
@@ -989,7 +678,7 @@
     <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header py-2 bg-light">
-                <h6 class="modal-title fw-bold"><i class="fas fa-table me-2"></i>Device Ledger</h6>
+                <h6 class="modal-title fw-bold"><i class="fas fa-table me-2"></i>Device Inventory</h6>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body p-0 d-flex flex-column" style="height: 70vh;">
@@ -1024,7 +713,7 @@
                         <thead class="sticky-top bg-light text-secondary">
                             <tr>
                                 <th class="ps-3">Alias</th>
-                                <th>Group</th>
+								<th>Group</th>
                                 <th>IP</th>
                                 <th>ID</th>
                                 <th>Status</th>
@@ -1042,9 +731,9 @@
                     <small class="text-muted ms-2" id="ledgerPageInfo">Page 1</small>
                     <div class="d-flex gap-2">
                         <select class="form-select form-select-sm w-auto" id="ledgerPageSize" onchange="ledgerPage=1; renderLedgerTable()">
-                            <option value="20">20 items</option>
-                            <option value="50">50 items</option>
-                            <option value="100">100 items</option>
+                            <option value="20">20 rows</option>
+                            <option value="50">50 rows</option>
+                            <option value="100">100 rows</option>
                         </select>
                         <div class="btn-group btn-group-sm">
                             <button class="btn btn-white border" onclick="changeLedgerPage(-1)"><</button>
@@ -1063,36 +752,24 @@
     let remoteWidth = 1920, remoteHeight = 1080;
     let ws = new WebSocket("ws://" + location.host + "/ws/web");
     let curClient = null, screenTimer = null, currentPath = "C:\\", allProcs = [];
-    let groups =[];
+    let groups = [];
     let clientDataMap = {}; 
-    let allClientsCache =[]; 
+    let allClientsCache = []; 
     let isUploading = false, uploadCancelled = false;
     const CHUNK_SIZE = 1024 * 40; 
     let FILE_THRESHOLD_MB = 10; 
     let runningTasks = {}, currentViewingTaskId = null;
-    let isScreenMonitoring = false;
-    
+	let isScreenMonitoring = false;
+	
     // Modals
     const confirmModal = new bootstrap.Modal(document.getElementById('globalConfirmModal'));
     let confirmCallback = null;
-    
-    function showModalConfirm(msg, cb) { 
-        document.getElementById('globalConfirmMsg').innerHTML = msg; 
-        confirmCallback = cb; 
-        confirmModal.show(); 
-    }
-    
-    document.getElementById('globalConfirmBtn').addEventListener('click', () => { 
-        if(confirmCallback) confirmCallback(); 
-        confirmModal.hide(); 
-    });
-    
-    function showModalAlert(msg) { 
-        showToast(msg, 'info'); 
-    }
+    function showModalConfirm(msg, cb) { document.getElementById('globalConfirmMsg').innerHTML = msg; confirmCallback = cb; confirmModal.show(); }
+    document.getElementById('globalConfirmBtn').addEventListener('click', () => { if(confirmCallback) confirmCallback(); confirmModal.hide(); });
+    function showModalAlert(msg) { showToast(msg, 'info'); }
 
     function showToast(msg, type='success') {
-        const bg = type === 'success' ? 'bg-success' : (type === 'error' ? 'bg-danger' : 'bg-primary');
+        const bg = type==='success'?'bg-success':(type==='error'?'bg-danger':'bg-primary');
         const toastEl = document.createElement('div'); 
         toastEl.className = `toast align-items-center text-white ${bg} border-0 show shadow`;
         toastEl.innerHTML = `<div class="d-flex"><div class="toast-body">${msg}</div><button type="button" class="btn-close btn-close-white me-2 m-auto" onclick="this.closest('.toast').remove()"></button></div>`;
@@ -1110,117 +787,91 @@
             const taskId = pl.task_id || findTaskIdByPath(msg.client_id, pl.path);
             if(taskId) handleProgressUpdate(taskId, msg.client_id, pl);
         }
-        
-        if(msg.client_id !== curClient && msg.type !== "refresh_list" && msg.type !== "sys_info" && msg.type !== "usb_record") return;
+		if(msg.client_id !== curClient && msg.type !== "refresh_list" && msg.type !== "sys_info" && msg.type !== "usb_record") return;
 
         if(msg.type === "cmd_out") {
             let t = document.getElementById("termOutput"); 
-            let formatted = msg.payload.replace(/</g,"&lt;").replace(/\n/g, "");
-            t.insertAdjacentHTML('beforeend', `<div class="text-break">${formatted}</div>`); 
-            
+			let formatted = msg.payload.replace(/</g,"&lt;").replace(/\n/g, "");
+			t.insertAdjacentHTML('beforeend', `<div class="text-break">${formatted}</div>`); 
+			
             t.scrollTop = t.scrollHeight;
             if(msg.cwd) { document.getElementById("cmdPrompt").innerText = msg.cwd + ">"; currentPath = msg.cwd; }
         } else if (msg.type === "screen") {
-            isRequestingFrame = false;
-            
-            let now = Date.now();
-            let rtt = now - lastReqTime; // Round-trip time (ms)
+			isRequestingFrame = false;
+			
+			let now = Date.now();
+            let rtt = now - lastReqTime;
             adjustQuality(rtt);
-            
-            if (!isScreenMonitoring) return; 
+			
+			if (!isScreenMonitoring) return; 
             let img = document.getElementById("screenDisplay");
             let ph = document.getElementById("screenPlaceholder");
             let statusBadge = document.getElementById("screenStatus");
-            
-            // Show debug info (optional, helps see current quality)
+			
             statusBadge.innerText = `Monitoring Q:${Math.floor(autoQuality)} S:${autoScale.toFixed(1)} T:${rtt}ms`;
 
-            // Check payload length.
-            // Image Base64 is at least several KB. If it's short, it's a status command (LOCKED, ERROR, etc.)
             if (msg.payload && msg.payload.length > 100) {
-                // Successfully received frame 
                 statusBadge.innerText = 'Monitoring';
                 statusBadge.className = 'badge bg-success d-flex align-items-center';
                 document.getElementById("controlToggle").disabled = false; 
                 
                 if(msg.width) { remoteWidth = msg.width; remoteHeight = msg.height; }
-                
-                // Immediately request the next frame after the image is loaded
-                img.onload = function() {
-                    // Image rendering complete, browser is idle, request next frame immediately
-                    // Use requestAnimationFrame to avoid blocking the UI thread
+				img.onload = function() {
                     if (isScreenMonitoring) {
                         requestAnimationFrame(() => requestNextFrame());
                     }
                 };
-                
-                // Update image, display logic is handled by img.onload
+				
                 img.src = "data:image/jpeg;base64," + msg.payload;
-                // Ensure image is displayed
-                img.style.display = 'block'; 
+				img.style.display = 'block'; 
                 ph.style.display = 'none';
             } else {
-                // Received non-frame signal (LOCKED, ERROR, or empty) 
                 img.style.display = "none";
-                ph.style.display = "block"; // Ensure placeholder is displayed
+                ph.style.display = "block"; 
                 
                 if (msg.payload === "LOCKED") {
-                    statusBadge.innerText = 'Desktop Locked'; 
+                    statusBadge.innerText = 'Desktop locked'; 
                     statusBadge.className = 'badge bg-warning text-dark d-flex align-items-center';
-                    ph.innerHTML = '<i class="fas fa-user-lock fs-1 mb-3 text-warning"></i><div>Desktop is locked or not logged in</div><div class="small text-muted mt-2">Reverse connection requires an active login session on the target host</div>';
+                    ph.innerHTML = '<i class="fas fa-user-lock fs-1 mb-3 text-warning"></i><div>Desktop locked or not logged in</div><div class="small text-muted mt-2">Reverse connection requires active login session</div>';
                 } else {
-                    // Handle other errors, like ERROR_NO_DISPLAY
                     statusBadge.innerText = 'No Signal';
                     statusBadge.className = 'badge bg-danger d-flex align-items-center';
                     ph.innerHTML = '<i class="fas fa-exclamation-triangle fs-1 mb-3 text-danger"></i><div>Temporarily unable to get screen</div><div class="small text-muted mt-2">Error code: ' + (msg.payload || 'No Response') + '</div>';
                 }
-                setTimeout(() => requestNextFrame(), 1000);
+				setTimeout(() => requestNextFrame(), 1000);
             }
         } else if (msg.type === "file_list") {
-            if(msg.path) currentPath = msg.path; 
-            document.getElementById("filePath").value = currentPath; 
-            renderFiles(msg.payload);
-        } else if (msg.type === "ps_list") { 
-            allProcs = msg.payload; 
-            renderPs(allProcs);
+            if(msg.path) currentPath = msg.path; document.getElementById("filePath").value = currentPath; renderFiles(msg.payload);
+        } else if (msg.type === "ps_list") { allProcs = msg.payload; renderPs(allProcs);
         } else if (msg.type === "sys_info") { 
-            // Store in ledger cache (This is key for ledger display)
             if (msg.client_id) {
-                ledgerCache = msg.payload;
-                
-                // If ledger modal is open, immediately refresh the table to show latest data
+                ledgerCache[msg.client_id] = msg.payload;
                 const ledgerModal = document.getElementById('ledgerModal');
                 if (ledgerModal && ledgerModal.classList.contains('show')) {
-                    // Can use debounce for performance, or call directly if data volume is small
                     renderLedgerTable();
                 }
             }
 
-            // If it's the currently viewed host, also update the main UI right info panel
-            if (curClient && (msg.client_id === curClient || (clientDataMap && clientDataMap.ip === msg.client_id))) {
+            if (curClient && (msg.client_id === curClient || (clientDataMap[curClient] && clientDataMap[curClient].ip === msg.client_id))) {
                 displaySysInfo(msg.payload);
             }
-        } else if (msg.type === "drive_list") { 
-            renderDrives(msg.payload); 
-        }
+        } else if (msg.type === "drive_list") { renderDrives(msg.payload); }
     };
 
-    function loadDrives() {
+	function loadDrives() {
         sendReq("fs_drives", "");
     }
-    
-    function renderDrives(drives) {
+	
+	function renderDrives(drives) {
         const container = document.getElementById("driveListContainer");
         if(!drives || !drives.length) return;
         
         container.innerHTML = drives.map(d => {
-            // Windows path handling: change C: to C:\\ for forceCd convenience
-            // Escape for non-Windows (like /)
             let pathArg = d;
-            if (d.includes(":")) { // Windows Drive like "C:"
+            if (d.includes(":")) { 
                  pathArg = d + "\\\\";
             } else {
-                 pathArg = d; // Linux/Mac mount point
+                 pathArg = d; 
             }
             
             return `<a class="tree-link" onclick="forceCd('${pathArg}')">
@@ -1229,18 +880,15 @@
         }).join('');
     }
 
-    // Render default disks (when offline or reset)
     function renderDefaultDrives() {
         document.getElementById("driveListContainer").innerHTML = `
             <a class="tree-link" onclick="forceCd('C:\\\\')"><i class="fas fa-hdd text-secondary"></i> Local Disk (C:)</a>
             <a class="tree-link" onclick="forceCd('D:\\\\')"><i class="fas fa-hdd text-secondary"></i> Local Disk (D:)</a>
         `;
     }
-    
-    // Global variable to add a flag, prevent duplicate requests
-    let isRequestingFrame = false;
-    
-    // Screen
+
+	let isRequestingFrame = false;
+
     function toggleScreen(on) {
         isScreenMonitoring = on;
         if(screenTimer) { clearInterval(screenTimer); screenTimer = null; }
@@ -1249,37 +897,30 @@
         let ph = document.getElementById("screenPlaceholder");
 
         if(on) { 
-            // When monitoring starts: Show loading animation, hide old image
             img.style.display = "none";
             ph.style.display = "block";
             ph.innerHTML = '<div class="spinner-border text-primary" role="status"></div><div class="mt-2 text-muted">Requesting screen data...</div>';
             
-            requestNextFrame(); 
+			requestNextFrame(); 
         } else {
-            // Stop monitoring logic remains unchanged...
-            document.getElementById("screenStatus").innerText = "Stopped"; 
-            document.getElementById("screenStatus").className = "badge bg-secondary d-flex align-items-center";
-            document.getElementById("controlToggle").disabled = true; 
-            document.getElementById("controlToggle").checked = false;
+            document.getElementById("screenStatus").innerText="Stopped"; 
+            document.getElementById("screenStatus").className="badge bg-secondary d-flex align-items-center";
+            document.getElementById("controlToggle").disabled=true; 
+            document.getElementById("controlToggle").checked=false;
             
             if (!img.src || img.src.length < 100) {
                 ph.style.display = "block";
-                ph.innerHTML = '<i class="fas fa-desktop fs-1 mb-3 opacity-25"></i><div>Click Start to monitor</div>';
+                ph.innerHTML = '<i class="fas fa-desktop fs-1 mb-3 opacity-25"></i><div>Click Start to Monitor</div>';
             }
         }
     }
-    
-    let lastReqTime = 0; // Last request start time
-    
-    // Adaptive parameter initial values
-    let autoQuality = 80;  // Initial quality 80%
-    let autoScale = 0.6;   // Initial scale 60%
-    
-    // Performance stats
+	
+    let lastReqTime = 0; 
+    let autoQuality = 80;  
+    let autoScale = 0.6;  
     let frameCount = 0;
     let rttSum = 0;
-    
-    // Function to request next frame ---
+
     function requestNextFrame() {
         if (!isScreenMonitoring) return;
         if (isRequestingFrame) return;
@@ -1287,149 +928,90 @@
         isRequestingFrame = true;
         lastReqTime = Date.now();
 
-        // Get dropdown value
         const selectEl = document.getElementById("qualitySelect");
-        // Fallback if webpage is still loading
         const mode = selectEl ? selectEl.value : 'high'; 
         
         let q, s;
 
-        // Manual mode logic
         switch(mode) {
             case 'auto':   q = Math.floor(autoQuality); s = autoScale.toFixed(2); break;
             case 'low':    q = 30; s = 0.5; break;
             case 'medium': q = 50; s = 0.8; break;
-            case 'high':   q = 80; s = 1.0; break; // Default hits here
+            case 'high':   q = 80; s = 1.0; break; 
             case 'ultra':  q = 95; s = 1.0; break;
-            default:       q = 80; s = 1.0; // Default fallback
+            default:       q = 80; s = 1.0; 
         }
 
-        // Send request
         sendReq("screen_req", `${q}|${s}`); 
     }
-    
+	
     const screenImg = document.getElementById("screenDisplay"), sc = document.getElementById("screenContainer");
-    
-    document.getElementById("controlToggle").addEventListener('change', e => { 
-        screenImg.style.cursor = e.target.checked ? "crosshair" : "default"; 
-        if(e.target.checked) sc.focus(); 
-    });
-    
-    screenImg.addEventListener("mousedown", e => handleMouse(e, "down")); 
-    window.addEventListener("mouseup", e => {
-        // Only process if control is enabled
+    document.getElementById("controlToggle").addEventListener('change', e=>{ screenImg.style.cursor = e.target.checked ? "crosshair" : "default"; if(e.target.checked) sc.focus(); });
+    screenImg.addEventListener("mousedown", e=>handleMouse(e, "down")); window.addEventListener("mouseup", e => {
         if (document.getElementById("controlToggle").checked) {
             handleMouse(e, "up");
         }
     });
-    
-    screenImg.addEventListener("mousemove", e => { 
-        if(document.getElementById("controlToggle").checked && Math.random() < 0.4) 
-            sendInput("mouse_move", getCoords(e)); 
-    });
-    
-    screenImg.addEventListener("contextmenu", e => e.preventDefault());
+    screenImg.addEventListener("mousemove", e=>{ if(document.getElementById("controlToggle").checked && Math.random()<0.4) sendInput("mouse_move", getCoords(e)); });
+	screenImg.addEventListener("contextmenu", e => e.preventDefault());
     sc.addEventListener("contextmenu", e => e.preventDefault());
-    
-    screenImg.addEventListener("wheel", e => {
-        // Only send if control is enabled
+	screenImg.addEventListener("wheel", e => {
+        // Send only when control is enabled
         if (!document.getElementById("controlToggle").checked) return;
         
-        // Prevent default browser scrollbar scroll
         e.preventDefault();
 
-        // Send scroll data, deltaY > 0 means scroll down, < 0 means scroll up
         sendInput("mouse_wheel", { delta: e.deltaY });
     }, { passive: false }); 
-    
-    sc.addEventListener("keydown", e => { 
-        if(document.getElementById("controlToggle").checked) { 
-            e.preventDefault(); 
-            sendInput("key", {key:e.keyCode, state:"down"}); 
-        } 
-    });
-    
-    sc.addEventListener("keyup", e => { 
-        if(document.getElementById("controlToggle").checked) { 
-            e.preventDefault(); 
-            sendInput("key", {key:e.keyCode, state:"up"}); 
-        } 
-    });
-    
-    function handleMouse(e, s) { 
-        if(!document.getElementById("controlToggle").checked) return; 
-        e.preventDefault(); 
-        let b = e.button === 2 ? "right" : (e.button === 1 ? "middle" : "left"); 
-        let c = getCoords(e); 
-        sendInput("mouse_click", {button:b, state:s, x:c.x, y:c.y}); 
-    }
-    
+    sc.addEventListener("keydown", e=>{ if(document.getElementById("controlToggle").checked) { e.preventDefault(); sendInput("key", {key:e.keyCode, state:"down"}); } });
+    sc.addEventListener("keyup", e=>{ if(document.getElementById("controlToggle").checked) { e.preventDefault(); sendInput("key", {key:e.keyCode, state:"up"}); } });
+    function handleMouse(e, s) { if(!document.getElementById("controlToggle").checked) return; e.preventDefault(); let b=e.button===2?"right":(e.button===1?"middle":"left"); let c=getCoords(e); sendInput("mouse_click", {button:b, state:s, x:c.x, y:c.y}); }
     function getCoords(e) { 
         let r = screenImg.getBoundingClientRect(); 
         
-        // Calculate relative coordinates
         let x = (e.clientX - r.left) * (remoteWidth / r.width);
         let y = (e.clientY - r.top) * (remoteHeight / r.height);
-        
-        // Simple bounds limit (prevents extremely exaggerated coords if mouse leaves screen)
-        // Note: If you need to drag windows to screen edge, you might relax or remove this limit
-        // Not strictly enforcing limits here, as Windows usually allows negative coords (multi-monitor)
-        
+
         return {x: x, y: y}; 
     }
-    
-    function sendInput(t, d) { d.event = t; sendReq("input_event", d); }
+    function sendInput(t, d) { d.event=t; sendReq("input_event", d); }
 
 
     // Logic
-    function sendCmd() { let i = document.getElementById("cmdInput"); sendReq("cmd", i.value); i.value = ""; }
+    function sendCmd() { let i=document.getElementById("cmdInput"); sendReq("cmd", i.value); i.value=""; }
     function refreshPs() { sendReq("ps_list",""); }
-    
-    function renderPs(l) { 
-        document.getElementById("psTableBody").innerHTML = l.map(p => `<tr><td class="ps-3 font-monospace">${p.pid}</td><td>${p.name}</td><td>${(p.mem/1024/1024).toFixed(1)}</td><td class="text-end pe-3"><button class="btn btn-sm btn-light border-0 text-danger" onclick="showModalConfirm('Terminate ${p.pid}?',()=>sendReq('ps_kill',${p.pid}))"><i class="fas fa-times"></i></button></td></tr>`).join(''); 
-    }
-    
-    function filterPs(v) { renderPs(allProcs.filter(p => p.name.toLowerCase().includes(v.toLowerCase()))); }
+    function renderPs(l) { document.getElementById("psTableBody").innerHTML = l.map(p=>`<tr><td class="ps-3 font-monospace">${p.pid}</td><td>${p.name}</td><td>${(p.mem/1024/1024).toFixed(1)}</td><td class="text-end pe-3"><button class="btn btn-sm btn-light border-0 text-danger" onclick="showModalConfirm('Terminate ${p.pid}?',()=>sendReq('ps_kill',${p.pid}))"><i class="fas fa-times"></i></button></td></tr>`).join(''); }
+    function filterPs(v) { renderPs(allProcs.filter(p=>p.name.toLowerCase().includes(v.toLowerCase()))); }
     function refreshFiles() { sendReq("fs_list", currentPath); }
-    function forceCd(p) { currentPath = p; refreshFiles(); }
-    function cdToPath() { currentPath = document.getElementById("filePath").value; refreshFiles(); }
-    
+    function forceCd(p) { currentPath=p; refreshFiles(); }
+    function cdToPath() { currentPath=document.getElementById("filePath").value; refreshFiles(); }
     function goUp() {
-        // Normalize path separators
-        let p = currentPath.replace(/\//g, "\\");
-        
-        // If already root directory (e.g. C:\ or C: or D:\), don't operate
-        if (/^:\\?$/.test(p)) return;
 
-        // Remove trailing backslash (if format is C:\Users\)
-        if (p.endsWith("\\")) p = p.slice(0, -1);
+		let p = currentPath.replace(/\//g, "\\");
+		
+		if (/^[a-zA-Z]:\\?$/.test(p)) return;
 
-        let i = p.lastIndexOf("\\");
-        if (i > 0) {
-            // Cut to before the last slash
-            currentPath = p.substring(0, i);
-            // If it became form like "C:", complete it as "C:\"
-            if (currentPath.endsWith(":")) currentPath += "\\";
-        } else {
-            // if no slashes left, set to C:\ (Rare, unless path itself is problematic)
-            if (/^:/.test(p)) {
-                 currentPath = p.substring(0, 2) + "\\";
-            }
-        }
-        refreshFiles();
-    }
-    
+		if (p.endsWith("\\")) p = p.slice(0, -1);
+
+		let i = p.lastIndexOf("\\");
+		if (i > 0) {
+			currentPath = p.substring(0, i);
+			if (currentPath.endsWith(":")) currentPath += "\\";
+		} else {
+			if (/^[a-zA-Z]:/.test(p)) {
+				 currentPath = p.substring(0, 2) + "\\";
+			}
+		}
+		refreshFiles();
+	}
     function renderFiles(l) {
-        if(!l || !l.length) return document.getElementById("fileTableBody").innerHTML = '<tr><td colspan="3" class="text-center text-muted py-3">Empty directory</td></tr>';
-        
-        document.getElementById("fileTableBody").innerHTML = l.map(f => {
-            let p = currentPath + (currentPath.endsWith("\\") ? "" : "\\") + f.name, ep = p.replace(/\\/g,"\\\\");
+        if(!l||!l.length) return document.getElementById("fileTableBody").innerHTML='<tr><td colspan="3" class="text-center text-muted py-3">Empty directory</td></tr>';
+        document.getElementById("fileTableBody").innerHTML = l.map(f=>{
+            let p = currentPath + (currentPath.endsWith("\\")?"":"\\") + f.name, ep = p.replace(/\\/g,"\\\\");
             let icon = f.is_dir ? '<i class="fas fa-folder text-warning"></i>' : '<i class="far fa-file text-secondary"></i>';
-            //folder entire row click enter (add onclick on name cell)
             let nameClick = f.is_dir ? `onclick="currentPath='${ep}';refreshFiles()"` : '';
             let cursorStyle = f.is_dir ? 'cursor:pointer' : '';
             
-            //action buttons display on one line
             let act = f.is_dir ? 
                 `<button class="btn btn-sm btn-light border-0" onclick="currentPath='${ep}';refreshFiles()"><i class="fas fa-chevron-right"></i></button>` : 
                 `<div class="d-flex justify-content-end gap-1">
@@ -1439,7 +1021,7 @@
                  </div>`;
             return `<tr>
                         <td class="ps-3" ${nameClick} style="${cursorStyle}">${icon} <span class="ms-2 user-select-none">${f.name}</span></td>
-                        <td class="small text-muted">${f.is_dir ? '' : (f.size/1024).toFixed(1)+'KB'}</td>
+                        <td class="small text-muted">${f.is_dir?'':(f.size/1024).toFixed(1)+'KB'}</td>
                         <td class="text-end pe-3 file-actions-cell">${act}</td>
                     </tr>`;
         }).join('');
@@ -1447,41 +1029,38 @@
 
     // Upload & Batch
     async function doUpload() {
-        const file = document.getElementById("upFile").files; 
-        if(!file || !curClient) return;
-        
-        const th = (parseInt(document.getElementById('batchFileThreshold').value) || 10) * 1024 * 1024;
-        document.getElementById("upFile").value = "";
-        
-        if(file.size > th) handleLargeFileUpload(, {file, remotePath: currentPath, run:false, runAsAdmin:false});
+        const file = document.getElementById("upFile").files[0]; if(!file||!curClient)return;
+        const th = (parseInt(document.getElementById('batchFileThreshold').value)||10)*1024*1024;
+        document.getElementById("upFile").value="";
+        if(file.size>th) handleLargeFileUpload([curClient], {file, remotePath: currentPath, run:false, runAsAdmin:false});
         else handleSmallFileUpload_Single(file);
     }
     
-    async function moveClient(id, direction) {
+	async function moveClient(id, direction) {
         // Get target client info
-        let client = clientDataMap;
+        let client = clientDataMap[id];
         if (!client) return;
         
-        // Determine group, get all clients under this group (allClientsCache is already sorted by server)
-        let groupName = client.group || "Default Group"; // Note: handle empty group name case here
-        // Re-filter to ensure absolute safety
+        // Determine group...
+        let groupName = client.group || "Default Group"; 
+        // Filter again to be safe
         let groupClients = allClientsCache.filter(c => (c.group || "Default Group") === groupName);
 
-        // Find target client index within the group
+        // Find current client index...
         let currentIndex = groupClients.findIndex(c => (c.id || c.ip) === id);
         if (currentIndex === -1) return;
 
-        // Calculate target index
+        // Calc target index
         let newIndex = currentIndex + direction;
-        if (newIndex < 0 || newIndex >= groupClients.length) return; // Bounds check
+        if (newIndex < 0 || newIndex >= groupClients.length) return; // Out of bounds check
 
-        // Swap positions in temporary array
-        let temp = groupClients;
-        groupClients = groupClients;
-        groupClients = temp;
+        // Swap in temp array
+        let temp = groupClients[currentIndex];
+        groupClients[currentIndex] = groupClients[newIndex];
+        groupClients[newIndex] = temp;
 
-        // Regenerate sort weights (SortOrder)
-        // Simple strategy: by new order, gap of 10 each
+        // Regenerate sort weights
+        // Simple strategy: interval of 10
         let updates = groupClients.map((c, index) => ({
             id: c.id || c.ip,
             sort_order: (index + 1) * 10
@@ -1494,138 +1073,89 @@
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({updates: updates})
             });
-            // Server will broadcast refresh_list message, page will refresh automatically
         } catch (e) {
             showToast("Sort failed", "error");
         }
     }
-    
+	
     async function handleSmallFileUpload_Single(file) {
         const modal = new bootstrap.Modal(document.getElementById('uploadModal'));
         document.getElementById('uploadFileName').innerText = file.name;
         document.getElementById('uploadProgressBar').style.width = "0%";
         document.getElementById('uploadPercent').innerText = "0%";
-        isUploading = true; uploadCancelled = false; modal.show();
-        
+        isUploading=true; uploadCancelled=false; modal.show();
         try {
-            let dir = currentPath.trim(); 
-            if(!dir) dir = "C:\\"; 
-            if(/^:$/.test(dir)) dir += "\\"; 
-            if(!dir.endsWith("\\") && !dir.endsWith("/")) dir += "\\";
-            let fullPath = dir + file.name;
-            
+            let dir = currentPath.trim(); if(!dir) dir="C:\\"; if(/^[a-zA-Z]:$/.test(dir)) dir+="\\"; if(!dir.endsWith("\\") && !dir.endsWith("/")) dir+="\\";
+            let fullPath = dir+file.name;
             ws.send(JSON.stringify({type:"forward_to_agent", target_id: curClient, payload: {type: "upload_start", file_path: fullPath, total_size: file.size}}));
-            let offset = 0;
-            while(offset < file.size) {
+            let offset=0;
+            while(offset<file.size) {
                 if(uploadCancelled) throw new Error("Cancelled");
                 const b64 = await fileToBs64(file.slice(offset, offset+CHUNK_SIZE));
                 ws.send(JSON.stringify({type:"forward_to_agent", target_id: curClient, payload: {type: "upload_chunk", data: b64}}));
-                offset += CHUNK_SIZE;
-                let pct = Math.min(100, Math.round((offset/file.size)*100));
-                document.getElementById('uploadProgressBar').style.width = pct + "%";
-                document.getElementById('uploadPercent').innerText = pct + "%";
+                offset+=CHUNK_SIZE;
+                let pct=Math.min(100, Math.round((offset/file.size)*100));
+                document.getElementById('uploadProgressBar').style.width=pct+"%";
+                document.getElementById('uploadPercent').innerText=pct+"%";
                 document.getElementById('uploadSizeInfo').innerText = `${(offset/1024/1024).toFixed(1)}/${(file.size/1024/1024).toFixed(1)}MB`;
-                await new Promise(r => setTimeout(r, 5));
+                await new Promise(r=>setTimeout(r,5));
             }
             ws.send(JSON.stringify({type:"forward_to_agent", target_id: curClient, payload: {type: "upload_finish"}}));
-            showToast("Upload successful"); 
-            setTimeout(refreshFiles, 1000); 
-            setTimeout(() => modal.hide(), 500);
-        } catch(e) { 
-            showToast("Failed", "error"); 
-            modal.hide(); 
-        } finally { 
-            isUploading = false; 
-        }
+            showToast("Upload successful"); setTimeout(refreshFiles, 1000); setTimeout(()=>modal.hide(),500);
+        } catch(e) { showToast("Failed","error"); modal.hide(); } finally { isUploading=false; }
     }
 
-    function cancelUpload() { if(isUploading) uploadCancelled = true; }
+    function cancelUpload() { if(isUploading) uploadCancelled=true; }
     
      async function handleLargeFileUpload(targets, config) {
         const taskId = "task_" + Date.now(), file = config.file;
-        runningTasks = { id: taskId, fileName: file.name, targets: targets, targetData: {}, stage: 'uploading', serverUrl: '', config: config, uploadPercent: 0 };
+        runningTasks[taskId] = { id: taskId, fileName: file.name, targets: targets, targetData: {}, stage: 'uploading', serverUrl: '', config: config, uploadPercent: 0 };
         
-        let dir = (config.remotePath || "").trim(); 
-        if(!dir) dir = "C:\\Temp"; 
-        if(/^:$/.test(dir)) dir += "\\"; 
-        if(!dir.endsWith("\\") && !dir.endsWith("/")) dir += "\\";
-        
+        let dir = (config.remotePath || "").trim(); if(!dir) dir = "C:\\Temp"; if(/^[a-zA-Z]:$/.test(dir)) dir += "\\"; if(!dir.endsWith("\\") && !dir.endsWith("/")) dir += "\\";
         let finalPath = dir + file.name;
-        targets.forEach(tid => { runningTasks.targetData = { percent: 0, status: 'waiting', path: finalPath }; });
+        targets.forEach(tid => { runningTasks[taskId].targetData[tid] = { percent: 0, status: 'waiting', path: finalPath }; });
 
         showLargeFileModal(taskId); updateTaskCenterUI();
 
         try {
             const formData = new FormData(); formData.append("file", file);
             const xhr = new XMLHttpRequest(); xhr.open("POST", "/api/file/stage");
-            xhr.upload.onprogress = (e) => { 
-                if(e.lengthComputable) { 
-                    let pct = Math.round((e.loaded/e.total)*100); 
-                    runningTasks.uploadPercent = pct; 
-                    if(currentViewingTaskId === taskId) document.getElementById('serverUploadBar').style.width = pct + '%'; 
-                } 
-            };
-            const serverUrl = await new Promise((res, rej) => { 
-                xhr.onload = () => xhr.status === 200 ? res(JSON.parse(xhr.responseText).url) : rej(xhr.statusText); 
-                xhr.onerror = () => rej("Network Error"); 
-                xhr.send(formData); 
-            });
+            xhr.upload.onprogress = (e) => { if(e.lengthComputable) { let pct = Math.round((e.loaded/e.total)*100); runningTasks[taskId].uploadPercent = pct; if(currentViewingTaskId===taskId) document.getElementById('serverUploadBar').style.width=pct+'%'; } };
+            const serverUrl = await new Promise((res, rej) => { xhr.onload = () => xhr.status===200 ? res(JSON.parse(xhr.responseText).url) : rej(xhr.statusText); xhr.onerror = () => rej("Network Error"); xhr.send(formData); });
 
-            runningTasks.stage = 'pulling'; 
-            runningTasks.serverUrl = serverUrl;
+            runningTasks[taskId].stage = 'pulling'; runningTasks[taskId].serverUrl = serverUrl;
             let fullUrl = window.location.origin + serverUrl;
-            
-            if(currentViewingTaskId === taskId) { 
-                document.getElementById('stageUploadSection').style.display = 'none'; 
-                document.getElementById('clientPullSection').style.display = 'block'; 
-                renderTaskRows(taskId); 
-            }
+            if(currentViewingTaskId === taskId) { document.getElementById('stageUploadSection').style.display='none'; document.getElementById('clientPullSection').style.display='block'; renderTaskRows(taskId); }
             updateTaskCenterUI();
 
             targets.forEach(tid => {
-                ws.send(JSON.stringify({ type: "forward_to_agent", target_id: tid, payload: { type: "file_pull", payload: { url: fullUrl, path: runningTasks.targetData.path, run: config.run, run_as_admin: config.runAsAdmin, task_id: taskId } } }));
-                runningTasks.targetData.status = 'sent'; 
+                ws.send(JSON.stringify({ type: "forward_to_agent", target_id: tid, payload: { type: "file_pull", payload: { url: fullUrl, path: runningTasks[taskId].targetData[tid].path, run: config.run, run_as_admin: config.runAsAdmin, task_id: taskId } } }));
+                runningTasks[taskId].targetData[tid].status = 'sent'; 
                 if(currentViewingTaskId === taskId) updateSingleRowUI(taskId, tid);
             });
-        } catch (e) { 
-            showToast("Error: " + e, "error"); 
-            delete runningTasks; 
-            updateTaskCenterUI(); 
-        }
+        } catch (e) { showToast("Error: "+e, "error"); delete runningTasks[taskId]; updateTaskCenterUI(); }
     }
 
     function showLargeFileModal(taskId) {
-        const task = runningTasks; if(!task) return; currentViewingTaskId = taskId;
-        let isAllDone = false; 
-        if (task.stage === 'pulling') isAllDone = task.targets.every(tid =>.includes(task.targetData.status));
-        
+        const task = runningTasks[taskId]; if(!task) return; currentViewingTaskId = taskId;
+        let isAllDone = false; if (task.stage === 'pulling') isAllDone = task.targets.every(tid => ['finished', 'error', 'cancelled'].includes(task.targetData[tid].status));
         const m = new bootstrap.Modal(document.getElementById('largeFileModal'));
         const btnHide = document.getElementById('btnHideTask'), btnCancel = document.getElementById('btnCancelTask');
-        
         if (isAllDone) {
             btnHide.innerHTML = 'Close'; btnHide.className = 'btn btn-success btn-sm'; btnHide.removeAttribute('data-bs-dismiss');
-            btnHide.onclick = function() { bootstrap.Modal.getInstance(document.getElementById('largeFileModal')).hide(); delete runningTasks; updateTaskCenterUI(); };
+            btnHide.onclick = function() { bootstrap.Modal.getInstance(document.getElementById('largeFileModal')).hide(); delete runningTasks[taskId]; updateTaskCenterUI(); };
             btnCancel.disabled = true;
         } else {
             btnHide.innerHTML = 'Hide'; btnHide.className = 'btn btn-primary btn-sm'; btnHide.setAttribute('data-bs-dismiss', 'modal'); btnHide.onclick = null; btnCancel.disabled = false;
         }
-        
-        if(task.stage === 'uploading') { 
-            document.getElementById('stageUploadSection').style.display = 'block'; 
-            document.getElementById('clientPullSection').style.display = 'none'; 
-            document.getElementById('serverUploadBar').style.width = task.uploadPercent + '%'; 
-        } else { 
-            document.getElementById('stageUploadSection').style.display = 'none'; 
-            document.getElementById('clientPullSection').style.display = 'block'; 
-            renderTaskRows(taskId); 
-        }
+        if(task.stage === 'uploading') { document.getElementById('stageUploadSection').style.display='block'; document.getElementById('clientPullSection').style.display='none'; document.getElementById('serverUploadBar').style.width=task.uploadPercent+'%'; } 
+        else { document.getElementById('stageUploadSection').style.display='none'; document.getElementById('clientPullSection').style.display='block'; renderTaskRows(taskId); }
         m.show();
     }
     
     function renderTaskRows(taskId) {
-        const task = runningTasks; 
-        document.getElementById('largeFileTableBody').innerHTML = task.targets.map(tid => {
-            let c = clientDataMap;
+        const task = runningTasks[taskId]; document.getElementById('largeFileTableBody').innerHTML = task.targets.map(tid => {
+            let c = clientDataMap[tid];
             return `<tr><td class="ps-3"><div class="fw-bold">${c?.alias||tid}</div><div class="small text-muted font-monospace">${c?.ip}</div></td>
             <td><div class="progress" style="height:6px"><div id="task_bar_${tid}" class="progress-bar" style="width:0%"></div></div></td>
             <td><span id="task_status_${tid}" class="badge bg-secondary">Wait</span></td>
@@ -1633,300 +1163,189 @@
         }).join('');
         task.targets.forEach(tid => updateSingleRowUI(taskId, tid));
     }
-    
     function updateSingleRowUI(taskId, tid) {
-        const d = runningTasks.targetData, b = document.getElementById(`task_bar_${tid}`), s = document.getElementById(`task_status_${tid}`);
-        if(!b || !s) return; 
-        b.style.width = d.percent + '%';
-        if(d.status === 'downloading') { s.className = "badge bg-primary"; s.innerText = d.percent + '%'; } 
-        else if(d.status === 'finished') { b.className = "progress-bar bg-success"; s.className = "badge bg-success"; s.innerText = "Completed"; }
-        else if(d.status === 'error' || d.status === 'cancelled') { b.className = "progress-bar bg-danger"; s.className = "badge bg-danger"; s.innerText = "Failed"; }
-        else { s.className = "badge bg-info text-dark"; s.innerText = "Requesting..."; }
+        const d = runningTasks[taskId].targetData[tid], b = document.getElementById(`task_bar_${tid}`), s = document.getElementById(`task_status_${tid}`);
+        if(!b||!s)return; b.style.width = d.percent + '%';
+        if(d.status==='downloading') { s.className="badge bg-primary"; s.innerText=d.percent+'%'; } 
+        else if(d.status==='finished') { b.className="progress-bar bg-success"; s.className="badge bg-success"; s.innerText="Finished"; }
+        else if(d.status==='error'||d.status==='cancelled') { b.className="progress-bar bg-danger"; s.className="badge bg-danger"; s.innerText="Failed"; }
+        else { s.className="badge bg-info text-dark"; s.innerText="Requesting..."; }
     }
-    
     function updateTaskCenterUI() {
         const ids = Object.keys(runningTasks), lst = document.getElementById('ongoingTaskList');
-        document.getElementById('globalTaskCount').innerText = ids.length; 
-        document.getElementById('globalTaskCount').style.display = ids.length ? 'block' : 'none';
-        
-        if(!ids.length) return lst.innerHTML = '<div class="p-3 text-center text-muted small">No background tasks</div>';
-        
+        document.getElementById('globalTaskCount').innerText = ids.length; document.getElementById('globalTaskCount').style.display = ids.length?'block':'none';
+        if(!ids.length) return lst.innerHTML='<div class="p-3 text-center text-muted small">No background tasks</div>';
         lst.innerHTML = ids.map(id => {
-            const t = runningTasks;
-            return `<div class="p-2 border-bottom bg-white cursor-pointer" onclick="showLargeFileModal('${id}')"><div class="d-flex justify-content-between mb-1"><span class="small fw-bold text-truncate" style="max-width:180px">${t.fileName}</span><span class="badge bg-light text-dark border">${t.stage === 'uploading' ? 'Upload' : 'Distrib'}</span></div><div class="progress" style="height:4px"><div class="progress-bar" style="width:${t.stage === 'uploading' ? t.uploadPercent : 50}%"></div></div></div>`;
+            const t = runningTasks[id];
+            return `<div class="p-2 border-bottom bg-white cursor-pointer" onclick="showLargeFileModal('${id}')"><div class="d-flex justify-content-between mb-1"><span class="small fw-bold text-truncate" style="max-width:180px">${t.fileName}</span><span class="badge bg-light text-dark border">${t.stage==='uploading'?'Upload':'Distribute'}</span></div><div class="progress" style="height:4px"><div class="progress-bar" style="width:${t.stage==='uploading'?t.uploadPercent:50}%"></div></div></div>`;
         }).join('');
     }
-    
-    function cancelSinglePull(taskId, cid) { 
-        const t = runningTasks; 
-        if(t) ws.send(JSON.stringify({type:"forward_to_agent", target_id: cid, payload: {type:"cancel_pull", payload: t.targetData.path}})); 
-    }
-    
-    function cancelAllLargeFile() { 
-        if(currentViewingTaskId && runningTasks) { 
-            const t = runningTasks; 
-            t.targets.forEach(cid => cancelSinglePull(currentViewingTaskId, cid)); 
-            bootstrap.Modal.getInstance(document.getElementById('largeFileModal')).hide(); 
-        } 
-    }
-    
-    function findTaskIdByPath(cid, p) { 
-        for(let id in runningTasks) 
-            if(runningTasks.targetData?.path === p) return id; 
-        return null; 
-    }
-    
+    function cancelSinglePull(taskId, cid) { const t = runningTasks[taskId]; if(t) ws.send(JSON.stringify({type:"forward_to_agent", target_id: cid, payload: {type:"cancel_pull", payload: t.targetData[cid].path}})); }
+    function cancelAllLargeFile() { if(currentViewingTaskId && runningTasks[currentViewingTaskId]) { const t = runningTasks[currentViewingTaskId]; t.targets.forEach(cid => cancelSinglePull(currentViewingTaskId, cid)); bootstrap.Modal.getInstance(document.getElementById('largeFileModal')).hide(); } }
+    function findTaskIdByPath(cid, p) { for(let id in runningTasks) if(runningTasks[id].targetData[cid]?.path === p) return id; return null; }
     function handleProgressUpdate(taskId, cid, data) {
-         const t = runningTasks; 
-         if(t && t.targetData) { 
-             t.targetData = {...t.targetData, ...data}; 
-             if(currentViewingTaskId === taskId) updateSingleRowUI(taskId, cid); 
-             if(.includes(data.status)) { 
-                 updateTaskCenterUI(); 
-                 if(t.stage === 'pulling' && t.targets.every(x =>.includes(t.targetData.status))) 
-                     setTimeout(() => { 
-                         if(currentViewingTaskId === taskId) { 
-                             bootstrap.Modal.getInstance(document.getElementById('largeFileModal')).hide(); 
-                             showToast("Task completed"); 
-                         } 
-                         delete runningTasks; 
-                         updateTaskCenterUI(); 
-                     }, 1500); 
-             } 
-         }
+         const t = runningTasks[taskId]; if(t && t.targetData[cid]) { t.targetData[cid] = {...t.targetData[cid], ...data}; if(currentViewingTaskId===taskId) updateSingleRowUI(taskId, cid); if(['finished','error','cancelled'].includes(data.status)) { updateTaskCenterUI(); if(t.stage==='pulling' && t.targets.every(x=>['finished','error','cancelled'].includes(t.targetData[x].status))) setTimeout(()=>{ if(currentViewingTaskId===taskId) { bootstrap.Modal.getInstance(document.getElementById('largeFileModal')).hide(); showToast("Task finished"); } delete runningTasks[taskId]; updateTaskCenterUI(); }, 1500); } }
     }
 
+
+    // Batch UI Fix
     function addBatchCommand() { 
-        document.getElementById("batchCmdEmpty").style.display = "none"; 
-        let id = Date.now(); 
-        document.getElementById("batchCommandList").insertAdjacentHTML('beforeend', 
-            `<div class="input-group mb-2 batch-item-cmd" id="cmd_${id}">
-                <span class="input-group-text bg-white border-end-0">>_</span>
-                <input type="text" class="form-control border-start-0" placeholder="Enter command..." id="cmd_input_${id}">
-                <button class="btn btn-white border text-danger" onclick="removeBatchItem('cmd_${id}', 'cmd')"><i class="fas fa-times"></i></button>
-            </div>`
-        ); 
-    }
-    
+		document.getElementById("batchCmdEmpty").style.display="none"; 
+		let id=Date.now(); 
+		document.getElementById("batchCommandList").insertAdjacentHTML('beforeend', 
+			`<div class="input-group mb-2 batch-item-cmd" id="cmd_${id}">
+				<span class="input-group-text bg-white border-end-0">>_</span>
+				<input type="text" class="form-control border-start-0" placeholder="Enter command..." id="cmd_input_${id}">
+				<button class="btn btn-white border text-danger" onclick="removeBatchItem('cmd_${id}', 'cmd')"><i class="fas fa-times"></i></button>
+			</div>`
+		); 
+	}
     function addBatchFile() { 
-        document.getElementById("batchFileEmpty").style.display = "none"; 
-        let id = Date.now(); 
-        document.getElementById("batchFileList").insertAdjacentHTML('beforeend', 
-            `<div class="border rounded p-3 mb-2 bg-white batch-item-file position-relative" id="file_${id}">
-                <button class="btn btn-sm text-danger position-absolute top-0 end-0 m-1" onclick="removeBatchItem('file_${id}', 'file')"><i class="fas fa-times"></i></button>
-                <div class="mb-2 pe-3"><input type="file" class="form-control form-control-sm" id="file_input_${id}"></div>
-                <input type="text" class="form-control form-control-sm mb-2" placeholder="Target path (e.g. C:\\Temp)" id="file_path_${id}">
-                <div class="d-flex gap-3 small">
-                    <div class="form-check"><input type="checkbox" class="form-check-input" id="file_overwrite_${id}" checked><label class="form-check-label">Force Overwrite</label></div>
-                    <div class="form-check"><input type="checkbox" class="form-check-input" id="file_run_${id}"><label class="form-check-label">Run after completion</label></div>
-                    <div class="form-check"><input type="checkbox" class="form-check-input" id="file_admin_${id}"><label class="form-check-label">Run as Admin</label></div>
-                </div>
-            </div>`
-        ); 
-    }
-    
-    function removeBatchItem(elementId, type) {
-        const el = document.getElementById(elementId);
-        if(el) el.remove();
+		document.getElementById("batchFileEmpty").style.display="none"; 
+		let id=Date.now(); 
+		document.getElementById("batchFileList").insertAdjacentHTML('beforeend', 
+			`<div class="border rounded p-3 mb-2 bg-white batch-item-file position-relative" id="file_${id}">
+				<button class="btn btn-sm text-danger position-absolute top-0 end-0 m-1" onclick="removeBatchItem('file_${id}', 'file')"><i class="fas fa-times"></i></button>
+				<div class="mb-2 pe-3"><input type="file" class="form-control form-control-sm" id="file_input_${id}"></div>
+				<input type="text" class="form-control form-control-sm mb-2" placeholder="Target path (e.g. C:\\Temp)" id="file_path_${id}">
+				<div class="d-flex gap-3 small">
+					<div class="form-check"><input type="checkbox" class="form-check-input" id="file_overwrite_${id}" checked><label class="form-check-label">Force overwrite</label></div>
+					<div class="form-check"><input type="checkbox" class="form-check-input" id="file_run_${id}"><label class="form-check-label">Run after finish</label></div>
+					<div class="form-check"><input type="checkbox" class="form-check-input" id="file_admin_${id}"><label class="form-check-label">Run as Admin</label></div>
+				</div>
+			</div>`
+		); 
+	}
+	
+	function removeBatchItem(elementId, type) {
+		// Remove element
+		const el = document.getElementById(elementId);
+		if(el) el.remove();
 
-        // Check if empty, if so show the placeholder text
-        if (type === 'cmd') {
-            const count = document.querySelectorAll('.batch-item-cmd').length;
-            if (count === 0) document.getElementById("batchCmdEmpty").style.display = "flex"; // flex for centering
-        } else if (type === 'file') {
-            const count = document.querySelectorAll('.batch-item-file').length;
-            if (count === 0) document.getElementById("batchFileEmpty").style.display = "flex";
-        }
-    }
+		// Check if empty, show hint if so
+		if (type === 'cmd') {
+			const count = document.querySelectorAll('.batch-item-cmd').length;
+			if (count === 0) document.getElementById("batchCmdEmpty").style.display = "flex"; // flex for centering
+		} else if (type === 'file') {
+			const count = document.querySelectorAll('.batch-item-file').length;
+			if (count === 0) document.getElementById("batchFileEmpty").style.display = "flex";
+		}
+	}
     
     async function executeBatchTask() {
-        const targets = getSelectedIPs().filter(ip => clientDataMap?.is_online);
+        const targets = getSelectedIPs().filter(ip => clientDataMap[ip]?.is_online);
         if(!targets.length) return showModalAlert("Please select online hosts");
-        
-        const cmds = Array.from(document.querySelectorAll('')).map(i => i.value.trim()).filter(v => v);
-        const files =[]; 
-        Array.from(document.querySelectorAll('')).forEach(i => { 
-            if(i.files.length) { 
-                let id = i.id.replace('file_input_',''); 
-                files.push({
-                    file: i.files, 
-                    remotePath: document.getElementById(`file_path_${id}`).value, 
-                    overwrite: document.getElementById(`file_overwrite_${id}`).checked, 
-                    run: document.getElementById(`file_run_${id}`).checked, 
-                    runAsAdmin: document.getElementById(`file_admin_${id}`).checked
-                }); 
-            } 
-        });
-        
+        const cmds = Array.from(document.querySelectorAll('[id^="cmd_input_"]')).map(i=>i.value.trim()).filter(v=>v);
+        const files = []; Array.from(document.querySelectorAll('[id^="file_input_"]')).forEach(i=>{ if(i.files.length) { let id=i.id.replace('file_input_',''); files.push({file:i.files[0], remotePath:document.getElementById(`file_path_${id}`).value, overwrite:document.getElementById(`file_overwrite_${id}`).checked, run:document.getElementById(`file_run_${id}`).checked, runAsAdmin:document.getElementById(`file_admin_${id}`).checked}); } });
         if(!cmds.length && !files.length) return showModalAlert("Task is empty");
-        
-        showModalConfirm(`Execute on ${targets.length} hosts?`, async () => {
-            if(cmds.length) { 
-                await fetch("/api/batch/execute", {
-                    method:"POST",
-                    headers:{"Content-Type":"application/json"},
-                    body:JSON.stringify({targets, commands:cmds.map(c=>({command:c})), files:[]})
-                }); 
-                showToast("Commands dispatched"); 
-            }
+        showModalConfirm(`Execute on ${targets.length} hosts?`, async ()=>{
+            if(cmds.length) { await fetch("/api/batch/execute", {method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({targets, commands:cmds.map(c=>({command:c})), files:[]})}); showToast("Command dispatched"); }
             if(files.length) startBatchUpload(targets, files);
         });
     }
-    
     function startBatchUpload(targets, files) {
-        const th = (parseInt(document.getElementById('batchFileThreshold').value) || 10) * 1024 * 1024;
-        let large = files.find(f => f.file.size > th);
-        if(large) { 
-            if(files.length > 1) showToast("Large files only support single upload", "warning"); 
-            handleLargeFileUpload(targets, large); 
-        } else { 
-            handleSmallFileUpload(targets, files); 
-        }
+        const th = (parseInt(document.getElementById('batchFileThreshold').value)||10)*1024*1024;
+        let large = files.find(f=>f.file.size>th);
+        if(large) { if(files.length>1) showToast("Large files only support single transfer","warning"); handleLargeFileUpload(targets, large); } else { handleSmallFileUpload(targets, files); }
     }
-    
+
      async function handleSmallFileUpload(targets, files) {
         const modal = new bootstrap.Modal(document.getElementById('uploadModal'));
         document.getElementById('uploadProgressBar').style.width = "0%";
         isUploading = true; uploadCancelled = false; modal.show();
-        
         try {
             for(let i=0; i<files.length; i++) {
                 if(uploadCancelled) throw new Error("Cancelled");
-                let f = files, dir = (f.remotePath||"").trim() || "C:\\Temp"; 
-                if(/^:$/.test(dir)) dir += "\\"; 
-                if(!dir.endsWith("\\") && !dir.endsWith("/")) dir += "\\"; 
-                let fullPath = dir + f.file.name;
-                
-                document.getElementById('uploadFileName').innerText = ` ${f.file.name}`;
+                let f = files[i], dir = (f.remotePath||"").trim() || "C:\\Temp"; if(/^[a-zA-Z]:$/.test(dir)) dir+="\\"; if(!dir.endsWith("\\") && !dir.endsWith("/")) dir+="\\"; let fullPath = dir + f.file.name;
+                document.getElementById('uploadFileName').innerText = `[${i+1}/${files.length}] ${f.file.name}`;
                 ws.send(JSON.stringify({type:"forward_batch", targets, payload:{type:"upload_start", file_path: fullPath, total_size:f.file.size, overwrite:f.overwrite}}));
-                let offset = 0;
-                
+                let offset=0;
                 while(offset < f.file.size) {
                     if(uploadCancelled) throw new Error("Cancelled");
                     const chunk = await fileToBs64(f.file.slice(offset, offset+CHUNK_SIZE));
                     ws.send(JSON.stringify({type:"forward_batch", targets, payload:{type:"upload_chunk", data:chunk}}));
                     offset += CHUNK_SIZE;
                     let pct = Math.min(100, Math.round((offset/f.file.size)*100));
-                    document.getElementById('uploadProgressBar').style.width = pct + "%"; 
-                    document.getElementById('uploadPercent').innerText = pct + "%";
-                    await new Promise(r => setTimeout(r, 5));
+                    document.getElementById('uploadProgressBar').style.width = pct+"%"; document.getElementById('uploadPercent').innerText = pct+"%";
+                    await new Promise(r=>setTimeout(r, 5));
                 }
                 ws.send(JSON.stringify({type:"forward_batch", targets, payload:{type:"upload_finish", run:f.run, run_as_admin:f.runAsAdmin}}));
-                await new Promise(r => setTimeout(r, 100));
+                await new Promise(r=>setTimeout(r, 100));
             }
-            setTimeout(() => { modal.hide(); showToast(`Completed`); }, 500);
-        } catch(e) { 
-            showToast("Error", "error"); 
-            modal.hide(); 
-        } finally { 
-            isUploading = false; 
-        }
+            setTimeout(() => { modal.hide(); showToast(`Finished`); }, 500);
+        } catch(e) { showToast("Error", "error"); modal.hide(); } finally { isUploading = false; }
     }
 
-    function sendReq(t, p) { 
-        if(curClient) fetch("/api/send", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({target_id:curClient, type:t, payload:p})}); 
-    }
-    
+
+    // Helpers
+    function sendReq(t,p) { if(curClient) fetch("/api/send",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({target_id:curClient,type:t,payload:p})}); }
     function loadSysInfo() { sendReq("sys_info", ""); }
-    
-    function displaySysInfo(i) {.forEach(k => document.getElementById(k+'Info').innerText = i || "N/A"); 
-    }
-    
-    function execFunction(fn) { showModalConfirm('Confirm execute?', () => sendReq("function", fn)); }
-    
-    function fileToBs64(b) { 
-        return new Promise((r, j) => { 
-            let rd = new FileReader(); 
-            rd.onload = () => r(rd.result.split(',')); 
-            rd.onerror = j; 
-            rd.readAsDataURL(b); 
-        }); 
-    }
-    
+    function displaySysInfo(i) { ['cpu','mem','disk','net','os','time'].forEach(k=>document.getElementById(k+'Info').innerText = i[k==='mem'?'memory':(k==='net'?'network':k)]||"N/A"); }
+    function execFunction(fn) { showModalConfirm('Confirm execution?', ()=>sendReq("function", fn)); }
+    function fileToBs64(b) { return new Promise((r,j)=>{ let rd=new FileReader(); rd.onload=()=>r(rd.result.split(',')[1]); rd.onerror=j; rd.readAsDataURL(b); }); }
     async function loadClients(btnElement) { 
         let icon;
+        // Safety check
         if(btnElement && btnElement instanceof Element) {
             icon = btnElement.querySelector('i');
             if(icon) icon.classList.add('fa-spin');
         }
 
         try { 
-            // Add timestamp to prevent browser cache
             let r = await fetch("/api/clients?t=" + Date.now()); 
             let data = await r.json(); 
             
-            allClientsCache = data ||[]; 
+            allClientsCache = data || []; 
             
             clientDataMap = {}; 
-            allClientsCache.forEach(c => clientDataMap = c); 
+            allClientsCache.forEach(c => clientDataMap[c.id || c.ip] = c); 
             
-            // Update bottom stats
             let countLabel = document.getElementById('totalClientCount');
             if(countLabel) countLabel.innerText = `${allClientsCache.length} Hosts`; 
             
-            // Update current selected host status
-            if (curClient && clientDataMap) { 
-                let c = clientDataMap; 
+            if (curClient && clientDataMap[curClient]) { 
+                let c = clientDataMap[curClient]; 
                 let btnMonitor = document.getElementById("btnStartMonitor");
                 if(btnMonitor) btnMonitor.disabled = !c.is_online; 
             } else if (allClientsCache.length === 0) {
-                // If no hosts left, disable monitor button
                 let btnMonitor = document.getElementById("btnStartMonitor");
                 if(btnMonitor) btnMonitor.disabled = true;
             }
             
-            // Force redraw list
             let searchInput = document.getElementById('clientSearchInput');
             filterClients(searchInput ? searchInput.value : ""); 
             
         } catch(e) {
             console.error("Load clients failed:", e);
-            // Only show toast for real network errors
             showToast("Refresh failed: " + e.message, "error");
         } finally {
-            // Remove animation
             if(icon) setTimeout(() => icon.classList.remove('fa-spin'), 500);
         }
     }
-    
-    /**
-     * Filter client list
-     * @param {string} t - Search keyword (optional)
-     */
-    function filterClients(t) {
-        // Get search text: use param if provided, else read from input
-        let searchText = (t !== undefined ? t : document.getElementById('clientSearchInput').value).toLowerCase();
-        
-        // Get status filter value: always read from select
-        let statusFilter = document.getElementById('clientStatusFilter') ? document.getElementById('clientStatusFilter').value : 'all';
 
-        // Execute filter logic
-        let filtered = allClientsCache.filter(c => {
-            // Keyword match (IP or Alias)
-            let matchText = c.ip.toLowerCase().includes(searchText) || (c.alias || "").toLowerCase().includes(searchText);
-            
-            // Status match
-            let matchStatus = true;
-            if (statusFilter === 'online') matchStatus = c.is_online;
-            if (statusFilter === 'offline') matchStatus = !c.is_online;
+	function filterClients(t) {
+		let searchText = (t !== undefined ? t : document.getElementById('clientSearchInput').value).toLowerCase();
+		let statusFilter = document.getElementById('clientStatusFilter') ? document.getElementById('clientStatusFilter').value : 'all';
+		let filtered = allClientsCache.filter(c => {
+			let matchText = c.ip.toLowerCase().includes(searchText) || (c.alias || "").toLowerCase().includes(searchText);
+			
+			let matchStatus = true;
+			if (statusFilter === 'online') matchStatus = c.is_online;
+			if (statusFilter === 'offline') matchStatus = !c.is_online;
 
-            return matchText && matchStatus;
-        });
-        
-        // Render filtered list
-        renderClientList(filtered);
-    }
+			return matchText && matchStatus;
+		});
+		
+		renderClientList(filtered);
+	}
     
-    // Render Client List (Fix Empty State & Group Header)
     function renderClientList(clients) {
         const container = document.getElementById("clientListArea");
         
-        // Data grouping
         let clientMap = {}; 
-        let rootClients =[];
+        let rootClients = [];
         
-        // Even if clients is empty, execute rendering to draw empty "Default Group" and "Group List"
-        (clients ||[]).forEach(c => {
+        (clients || []).forEach(c => {
             let gid = c.group_id || ""; 
             if (!gid && c.group) {
                 let found = groupsRaw.find(g => g.name === c.group);
@@ -1936,34 +1355,30 @@
             if (!gid) {
                 rootClients.push(c);
             } else {
-                if (!clientMap) clientMap = [];
-                clientMap.push(c);
+                if (!clientMap[gid]) clientMap[gid] = [];
+                clientMap[gid].push(c);
             }
         });
 
         let html = "";
         
-        // Helper function: calculate recursive total
         function countNestedClients(g) {
             let c = 0;
             if(g.children) g.children.forEach(child => {
-                c += (clientMap ||[]).length;
+                c += (clientMap[child.id] || []).length;
                 c += countNestedClients(child);
             });
             return c;
         }
 
-        // Recursively generate group tree HTML
         function renderTreeNodes(nodeList) {
             let s = "";
             nodeList.forEach(group => {
-                let groupClients = clientMap ||[];
+                let groupClients = clientMap[group.id] || [];
                 let totalCount = groupClients.length + countNestedClients(group);
                 let isCollapsed = localStorage.getItem(`grp_collapse_${group.id}`) === 'true';
                 
-                // Determine icon style
                 let iconClass = isCollapsed ? 'fa-chevron-right' : 'fa-chevron-down';
-                // Dim icon if no subgroups and no hosts
                 let dimIcon = (group.children.length === 0 && groupClients.length === 0) ? 'opacity-25' : '';
 
                 s += `<div class="group-node" id="gnode_${group.id}">
@@ -1977,7 +1392,7 @@
                              <span class="ms-2 badge bg-secondary opacity-25 rounded-pill" style="font-size:0.6rem">${totalCount}</span>
                              
                              <div class="group-actions" onclick="event.stopPropagation()">
-                                <div class="group-menu-trigger me-1" onclick="openGroupModal('add', '${group.id}', '', event)" title="Add Subgroup">
+                                <div class="group-menu-trigger me-1" onclick="openGroupModal('add', '${group.id}', '', event)" title="Add sub-group">
                                     <i class="fas fa-plus text-success"></i>
                                 </div>
                                 <div class="dropdown d-inline-block">
@@ -2003,9 +1418,9 @@
             return s;
         }
 
-        // Generate host list item HTML
+        // Generate client list items HTML
         function renderClients(list) {
-            if (!list || list.length === 0) return ""; // Return empty if no hosts in group
+            if (!list || list.length === 0) return ""; 
             
             let s = "";
             let sel = new Set(); 
@@ -2016,11 +1431,11 @@
                 let displayIp = `${c.ip}`;
                 let passiveBadge = c.mode === 'passive' ? '<i class="fas fa-satellite-dish ms-1 text-muted small" title="Reverse"></i>' : '';
                 
-                s += `<div class="client-item ${id === curClient ? 'active' : ''}" onclick="sel('${id}','${c.alias||c.ip}',${c.is_online})">
-                        <input type="checkbox" class="form-check-input me-3 client-checkbox" value="${id}" ${sel.has(id) ? "checked" : ""} onclick="event.stopPropagation();updateBatchUI()">
+                s += `<div class="client-item ${id===curClient?'active':''}" onclick="sel('${id}','${c.alias||c.ip}',${c.is_online})">
+                        <input type="checkbox" class="form-check-input me-3 client-checkbox" value="${id}" ${sel.has(id)?"checked":""} onclick="event.stopPropagation();updateBatchUI()">
                         <div class="client-info-row">
                              <div class="d-flex align-items-center">
-                                 <span class="status-dot ${c.is_online ? (c.mode === 'passive' ? 'online-passive' : 'online') : 'offline'}"></span>
+                                 <span class="status-dot ${c.is_online?(c.mode==='passive'?'online-passive':'online'):'offline'}"></span>
                                  <span class="client-name">${c.alias||c.ip}</span> ${passiveBadge}
                              </div>
                              <span class="client-ip-id text-truncate">${displayIp}</span>
@@ -2039,10 +1454,7 @@
             });
             return s;
         }
-
-        // --- Start building DOM structure ---
         
-        // Always show "Default Group", even if no hosts, so users can perceive structure
         let isCollapsed = localStorage.getItem('grp_collapse_root_virtual') === 'true';
         let count = rootClients.length;
         
@@ -2061,308 +1473,249 @@
                     </div>
                  </div>`;
 
-        // Always show Group List title
         html += `<div class="group-header bg-light border-bottom border-light">
                     <span class="fw-bold small text-secondary">Group List</span>
-                    <div class="group-menu-trigger ms-auto" onclick="openGroupModal('add', '', '', event)" title="Add Root Group">
+                    <div class="group-menu-trigger ms-auto" onclick="openGroupModal('add', '', '', event)" title="Add root group">
                         <i class="fas fa-plus text-success"></i>
                     </div>
                  </div>`;
                  
-        // Render group tree (If no groups, show empty message)
         if (groupsTree.length === 0) {
-             html += '<div class="text-center text-muted small py-3">No Groups</div>';
+             html += '<div class="text-center text-muted small py-3">No groups</div>';
         } else {
              html += renderTreeNodes(groupsTree);
         }
 
-        // Force overwrite innerHTML, clear old data
         container.innerHTML = html;
         updateBatchUI();
     }
     
-    // Toggle group expand/collapse
-    function toggleGroupNode(gid) {
-        const el = document.getElementById(`gchild_${gid}`);
-        const icon = document.querySelector(`#gnode_${gid} > .group-header > .fa-chevron-right, #gnode_${gid} > .group-header > .fa-chevron-down`);
-        
-        if (el) {
-            if (el.classList.contains('collapsed')) {
-                el.classList.remove('collapsed');
-                if(icon) { icon.classList.remove('fa-chevron-right'); icon.classList.add('fa-chevron-down'); }
-                localStorage.setItem(`grp_collapse_${gid}`, 'false');
-            } else {
-                el.classList.add('collapsed');
-                if(icon) { icon.classList.remove('fa-chevron-down'); icon.classList.add('fa-chevron-right'); }
-                localStorage.setItem(`grp_collapse_${gid}`, 'true');
-            }
-        }
-    }
+	function toggleGroupNode(gid) {
+		const el = document.getElementById(`gchild_${gid}`);
+		const icon = document.querySelector(`#gnode_${gid} > .group-header > .fa-chevron-right, #gnode_${gid} > .group-header > .fa-chevron-down`);
+		
+		if (el) {
+			if (el.classList.contains('collapsed')) {
+				el.classList.remove('collapsed');
+				if(icon) { icon.classList.remove('fa-chevron-right'); icon.classList.add('fa-chevron-down'); }
+				localStorage.setItem(`grp_collapse_${gid}`, 'false');
+			} else {
+				el.classList.add('collapsed');
+				if(icon) { icon.classList.remove('fa-chevron-down'); icon.classList.add('fa-chevron-right'); }
+				localStorage.setItem(`grp_collapse_${gid}`, 'true');
+			}
+		}
+	}
 
-    // Add group
-    async function promptAddGroup(parentId) {
-        let name = prompt("Please enter group name:");
-        if (name) {
-            await fetch("/api/group/add", {
-                method: "POST", headers: {"Content-Type":"application/json"},
-                body: JSON.stringify({ name: name, parent_id: parentId || "" })
-            });
-            loadGroups();
-        }
-    }
+	async function promptAddGroup(parentId) {
+		let name = prompt("Enter group name:");
+		if (name) {
+			await fetch("/api/group/add", {
+				method: "POST", headers: {"Content-Type":"application/json"},
+				body: JSON.stringify({ name: name, parent_id: parentId || "" })
+			});
+			loadGroups();
+		}
+	}
 
-    // Rename group
-    async function promptRenameGroup(id, oldName) {
-        let name = prompt("Rename group:", oldName);
-        if (name && name !== oldName) {
-            await fetch("/api/group/update", {
-                method: "POST", headers: {"Content-Type":"application/json"},
-                body: JSON.stringify({ id: id, name: name })
-            });
-            loadGroups();
-        }
-    }
+	async function promptRenameGroup(id, oldName) {
+		let name = prompt("Rename group:", oldName);
+		if (name && name !== oldName) {
+			await fetch("/api/group/update", {
+				method: "POST", headers: {"Content-Type":"application/json"},
+				body: JSON.stringify({ id: id, name: name })
+			});
+			loadGroups();
+		}
+	}
 
-    // Move group order
-    async function moveGroup(id, dir) {
-        // Find the group object and its siblings
-        let group = groupsRaw.find(g => g.id === id);
-        if (!group) return;
-        
-        let siblings = groupsRaw.filter(g => g.parent_id === group.parent_id);
-        siblings.sort((a,b) => a.sort_order - b.sort_order); // Ensure currently sorted
-        
-        let idx = siblings.findIndex(g => g.id === id);
-        let targetIdx = idx + dir;
-        
-        if (targetIdx < 0 || targetIdx >= siblings.length) return;
-        
-        // Swap
-        let other = siblings;
-        
-        // Submit two update requests
-        // Simple strategy: swap sort_order, micro-adjust if same
-        let temp = group.sort_order;
-        group.sort_order = other.sort_order;
-        other.sort_order = temp;
-        
-        // Force differentiation if they happen to be equal
-        if (group.sort_order === other.sort_order) {
-            group.sort_order += dir;
-        }
+	async function moveGroup(id, dir) {
+		let group = groupsRaw.find(g => g.id === id);
+		if (!group) return;
+		
+		let siblings = groupsRaw.filter(g => g.parent_id === group.parent_id);
+		siblings.sort((a,b) => a.sort_order - b.sort_order); 
+		
+		let idx = siblings.findIndex(g => g.id === id);
+		let targetIdx = idx + dir;
+		
+		if (targetIdx < 0 || targetIdx >= siblings.length) return;
+		
+		let other = siblings[targetIdx];
+		
+		let temp = group.sort_order;
+		group.sort_order = other.sort_order;
+		other.sort_order = temp;
+		
+		if (group.sort_order === other.sort_order) {
+			group.sort_order += dir;
+		}
 
-        await Promise.all();
-        
-        loadGroups();
-    }
-    
-    function toggleGroupDisplay(gid) { 
-        let el = document.getElementById(gid); 
-        el.style.display = el.style.display === 'none' ? 'block' : 'none'; 
-    }
-    
-    let isAllGroupsCollapsed = false;
+		await Promise.all([
+			fetch("/api/group/update", { method: "POST", body: JSON.stringify({ id: group.id, sort_order: group.sort_order }) }),
+			fetch("/api/group/update", { method: "POST", body: JSON.stringify({ id: other.id, sort_order: other.sort_order }) })
+		]);
+		
+		loadGroups();
+	}
+	
+    function toggleGroupDisplay(gid) { let el=document.getElementById(gid); el.style.display = el.style.display==='none'?'block':'none'; }
+	
+	
+	let isAllGroupsCollapsed = false;
     function toggleAllGroups() {
-        const allChildren = document.querySelectorAll('.group-children');
-        if (allChildren.length === 0) return;
+		const allChildren = document.querySelectorAll('.group-children');
+		if (allChildren.length === 0) return;
 
-        // Check if any group is expanded (does not have 'collapsed' class)
-        const isAnyExpanded = Array.from(allChildren).some(el => !el.classList.contains('collapsed'));
+		const isAnyExpanded = Array.from(allChildren).some(el => !el.classList.contains('collapsed'));
 
-        // Determine target action:
-        // If any is expanded (mixed or all open) -> Target is collapse all (shouldCollapse = true)
-        // If all are collapsed -> Target is expand all (shouldCollapse = false)
-        const shouldCollapse = isAnyExpanded;
+		const shouldCollapse = isAnyExpanded;
 
-        allChildren.forEach(el => {
-            // Get group ID
-            const gid = el.id.replace('gchild_', '');
-            // Find corresponding node container to locate icon
-            const node = document.getElementById(`gnode_${gid}`);
-            // Find arrow icon (might be down or right)
-            const icon = node ? node.querySelector('.group-header .fas.fa-chevron-down, .group-header .fas.fa-chevron-right') : null;
+		allChildren.forEach(el => {
+			const gid = el.id.replace('gchild_', '');
+			const node = document.getElementById(`gnode_${gid}`);
+			const icon = node ? node.querySelector('.group-header .fas.fa-chevron-down, .group-header .fas.fa-chevron-right') : null;
 
-            if (shouldCollapse) {
-                // Execute collapse
-                el.classList.add('collapsed');
-                if (icon) {
-                    icon.classList.remove('fa-chevron-down');
-                    icon.classList.add('fa-chevron-right');
-                }
-                localStorage.setItem(`grp_collapse_${gid}`, 'true');
-            } else {
-                // Execute expand
-                el.classList.remove('collapsed');
-                if (icon) {
-                    icon.classList.remove('fa-chevron-right');
-                    icon.classList.add('fa-chevron-down');
-                }
-                localStorage.setItem(`grp_collapse_${gid}`, 'false');
-            }
-        });
-    }
-    
-    const groupActionModal = new bootstrap.Modal(document.getElementById('groupActionModal'));
+			if (shouldCollapse) {
+				el.classList.add('collapsed');
+				if (icon) {
+					icon.classList.remove('fa-chevron-down');
+					icon.classList.add('fa-chevron-right');
+				}
+				localStorage.setItem(`grp_collapse_${gid}`, 'true');
+			} else {
+				el.classList.remove('collapsed');
+				if (icon) {
+					icon.classList.remove('fa-chevron-right');
+					icon.classList.add('fa-chevron-down');
+				}
+				localStorage.setItem(`grp_collapse_${gid}`, 'false');
+			}
+		});
+	}
+	
+	const groupActionModal = new bootstrap.Modal(document.getElementById('groupActionModal'));
 
-    function openGroupModal(mode, targetId, currentName = '', event = null) {
-        // event is used to stop propagation, preventing trigger of collapse, and handling dropdown close
-        if(event) event.stopPropagation();
+	function openGroupModal(mode, targetId, currentName = '', event = null) {
+		if(event) event.stopPropagation();
 
-        // Set status
-        document.getElementById('ga_mode').value = mode;
-        document.getElementById('ga_targetId').value = targetId;
-        document.getElementById('ga_nameInput').value = mode === 'rename' ? currentName : '';
-        document.getElementById('groupActionTitle').innerText = mode === 'add' ? 'Add Group' : 'Rename Group';
-        
-        groupActionModal.show();
-        
-        // Auto focus input
-        setTimeout(() => document.getElementById('ga_nameInput').focus(), 500);
-    }
+		document.getElementById('ga_mode').value = mode;
+		document.getElementById('ga_targetId').value = targetId;
+		document.getElementById('ga_nameInput').value = mode === 'rename' ? currentName : '';
+		document.getElementById('groupActionTitle').innerText = mode === 'add' ? 'Add Group' : 'Rename Group';
+		
+		groupActionModal.show();
+		
+		setTimeout(() => document.getElementById('ga_nameInput').focus(), 500);
+	}
 
-    // Submit group action (Add/Rename)
-    async function submitGroupAction() {
-        const mode = document.getElementById('ga_mode').value;
-        const targetId = document.getElementById('ga_targetId').value; // For add it's parentId, for rename it's id
-        const name = document.getElementById('ga_nameInput').value.trim();
-        
-        if (!name) return showToast("Name cannot be empty", "error");
+	async function submitGroupAction() {
+		const mode = document.getElementById('ga_mode').value;
+		const targetId = document.getElementById('ga_targetId').value; 
+		const name = document.getElementById('ga_nameInput').value.trim();
+		
+		if (!name) return showToast("Name cannot be empty", "error");
 
-        // Close modal
-        groupActionModal.hide();
+		groupActionModal.hide();
 
-        if (mode === 'add') {
-            // Add group
-            await fetch("/api/group/add", {
-                method: "POST", headers: {"Content-Type":"application/json"},
-                body: JSON.stringify({ name: name, parent_id: targetId })
-            });
-        } else {
-            // Rename group
-            await fetch("/api/group/update", {
-                method: "POST", headers: {"Content-Type":"application/json"},
-                body: JSON.stringify({ id: targetId, name: name })
-            });
-        }
-        
-        // Refresh
-        loadGroups();
-    }
+		if (mode === 'add') {
+			await fetch("/api/group/add", {
+				method: "POST", headers: {"Content-Type":"application/json"},
+				body: JSON.stringify({ name: name, parent_id: targetId })
+			});
+		} else {
+			await fetch("/api/group/update", {
+				method: "POST", headers: {"Content-Type":"application/json"},
+				body: JSON.stringify({ id: targetId, name: name })
+			});
+		}
+		
+		loadGroups();
+	}
 
-    // Confirm group deletion
-    function confirmDeleteGroup(id) {
-        showModalConfirm("Are you sure you want to delete this group and its subgroups?<br>Hosts within the group will be moved to the Default Group.", async () => {
-            await fetch("/api/group/delete", {
-                method: "POST", headers: {"Content-Type":"application/json"},
-                body: JSON.stringify({ id: id })
-            });
-            loadGroups();
-            loadClients();
-        });
-    }
+	function confirmDeleteGroup(id) {
+		showModalConfirm("Are you sure to delete this group and sub-groups?<br>Hosts will be moved to the Default Group.", async () => {
+			await fetch("/api/group/delete", {
+				method: "POST", headers: {"Content-Type":"application/json"},
+				body: JSON.stringify({ id: id })
+			});
+			loadGroups();
+			loadClients();
+		});
+	}
 
-    function toggleAllClients(src) { 
-        document.querySelectorAll('.client-checkbox').forEach(c => c.checked = src.checked); 
-        updateBatchUI(); 
-    }
-    
-    function toggleGroup(src) { 
-        document.getElementById(src.dataset.target).querySelectorAll('.client-checkbox').forEach(c => c.checked = src.checked); 
-        updateBatchUI(); 
-    }
-    
+    function toggleAllClients(src) { document.querySelectorAll('.client-checkbox').forEach(c=>c.checked=src.checked); updateBatchUI(); }
+    function toggleGroup(src) { document.getElementById(src.dataset.target).querySelectorAll('.client-checkbox').forEach(c=>c.checked=src.checked); updateBatchUI(); }
     function updateBatchUI() { 
-        let c = document.querySelectorAll('.client-checkbox:checked').length; 
-        document.querySelectorAll('.group-checkbox').forEach(gc => { 
-            let g = document.getElementById(gc.dataset.target), 
-                t = g.querySelectorAll('.client-checkbox').length, 
-                ch = g.querySelectorAll('.client-checkbox:checked').length; 
-            gc.checked = (t > 0 && t === ch); 
-            gc.indeterminate = (ch > 0 && ch < t); 
-        });
+        let c=document.querySelectorAll('.client-checkbox:checked').length; 
+        document.querySelectorAll('.group-checkbox').forEach(gc=>{ let g=document.getElementById(gc.dataset.target), t=g.querySelectorAll('.client-checkbox').length, ch=g.querySelectorAll('.client-checkbox:checked').length; gc.checked=(t>0&&t===ch); gc.indeterminate=(ch>0&&ch<t); });
     }
-    
-    function getSelectedIPs() { 
-        let r =[]; 
-        document.querySelectorAll('.client-checkbox:checked').forEach(c => r.push(c.value)); 
-        return r; 
-    }
-    
+    function getSelectedIPs() { let r=[]; document.querySelectorAll('.client-checkbox:checked').forEach(c=>r.push(c.value)); return r; }
     function sel(id, n, on) { 
-        if (curClient === id) return; 
-        
-        curClient = id; 
-        document.getElementById("currentHostName").innerText = n; 
-        document.getElementById("currentHostIp").innerText = id; 
-        document.getElementById("btnStartMonitor").disabled = !on; 
-        
-        // Stop monitoring
-        toggleScreen(false); 
-        
-        // Reset UI: hide first, then clear src
+		if (curClient === id) return; 
+		
+		curClient=id; 
+		document.getElementById("currentHostName").innerText=n; 
+		document.getElementById("currentHostIp").innerText=id; 
+		document.getElementById("btnStartMonitor").disabled=!on; 
+		
+		toggleScreen(false); 
+		
         let img = document.getElementById("screenDisplay");
         let ph = document.getElementById("screenPlaceholder");
         let statusBadge = document.getElementById("screenStatus");
 
         img.style.display = "none"; 
-        img.src = ""; 
+        img.src = "";               
         img.style.cursor = "default";
 
-        // Restore placeholder
         ph.style.display = "block";
-        ph.innerHTML = '<i class="fas fa-desktop fs-1 mb-3 opacity-25"></i><div>Click Start to monitor</div>';
+        ph.innerHTML = '<i class="fas fa-desktop fs-1 mb-3 opacity-25"></i><div>Click Start to Monitor</div>';
 
         statusBadge.innerText = "Stopped";
         statusBadge.className = "badge bg-secondary d-flex align-items-center";
 
         document.getElementById("psTableBody").innerHTML = '';
-        allProcs =[]; 
+        allProcs = []; 
         currentPath = "C:\\";
         document.getElementById("filePath").value = currentPath;
         document.getElementById("fileTableBody").innerHTML = ''; 
-        
-        loadClients(); 
-        if(on) {
-            loadSysInfo(); 
-            if(typeof loadDrives === "function") loadDrives();
-        } else {.forEach(k => document.getElementById(k+'Info').innerText = "---");
-            if(typeof renderDefaultDrives === "function") renderDefaultDrives();
-        }
-    }
+		
+		loadClients(); 
+		if(on) {
+			loadSysInfo(); 
+			if(typeof loadDrives === "function") loadDrives();
+		} else {
+			['cpu','mem','disk','net','os','time'].forEach(k=>document.getElementById(k+'Info').innerText = "---");
+			if(typeof renderDefaultDrives === "function") renderDefaultDrives();
+		}
+	}
     
-    // Add/Edit/Remove Client
     function showAddModal() { 
-        document.getElementById("modalTitle").innerText = "Add Host";
-        document.getElementById("idDisplayRow").style.display = "none"; 
+		document.getElementById("modalTitle").innerText = "Add Host";
+        document.getElementById("idDisplayRow").style.display="none"; 
         
-        // Clear hidden ID field, ensuring backend recognizes it as new add
         document.getElementById("addId").value = ""; 
         document.getElementById("editingIp").value = "";
         
-        // Clear input boxes
         document.getElementById("addIp").value = "";
         document.getElementById("addAlias").value = "";
         document.getElementById("addGroup").value = "";
         
-        // Reset password box (If template rendered a default value, manually reset here, or leave empty)
         document.getElementById("addPass").value = "{{.DefaultPass}}"; 
         
-        // Ensure IP box is editable
         document.getElementById("addIp").readOnly = false; 
-        document.getElementById("editMode").value = "active"; // default active
+        document.getElementById("editMode").value = "active"; 
         
         new bootstrap.Modal('#addModal').show(); 
     }
-    
     function editClient(id, a, gid, p, m) { 
-        document.getElementById("modalTitle").innerText = "Edit Host";
+		document.getElementById("modalTitle").innerText = "Edit Host";
         document.getElementById("editingIp").value = id; 
         
-        // Prevent errors when data is not loaded
-        let currentIp = clientDataMap ? clientDataMap.ip : id;
+        let currentIp = clientDataMap[id] ? clientDataMap[id].ip : id;
         document.getElementById("addIp").value = currentIp; 
         
-        // Allow modifying IP
         document.getElementById("addIp").readOnly = false; 
         
         document.getElementById("idDisplayRow").style.display = "block"; 
@@ -2374,37 +1727,23 @@
         
         new bootstrap.Modal('#addModal').show(); 
     }
-    
     async function saveClient() { 
-        await fetch("/api/client/add", {
-            method:"POST", 
-            headers:{"Content-Type":"application/json"}, 
-            body:JSON.stringify({
-                id: document.getElementById("addId").value, 
-                ip: document.getElementById("addIp").value, 
-                alias: document.getElementById("addAlias").value, 
-                group_id: document.getElementById("addGroup").value, // send group_id
-                password: document.getElementById("addPass").value,
-                mode: document.getElementById("editMode").value
-            })
-        }); 
-        loadClients(); // will trigger list re-render
-        bootstrap.Modal.getInstance(document.getElementById('addModal')).hide(); 
-    }
-    
-    async function removeClient(ip) { 
-        showModalConfirm(`Are you sure you want to delete ${ip}?`, async () => { 
-            await fetch("/api/client/remove", {
-                method:"POST",
-                headers:{"Content-Type":"application/json"},
-                body:JSON.stringify({ip})
-            }); 
-            if(ip === curClient) location.reload(); 
-            showToast("Deleted successfully"); 
-            loadClients(); 
-        }); 
-    }
-    
+		await fetch("/api/client/add", {
+			method:"POST", 
+			headers:{"Content-Type":"application/json"}, 
+			body:JSON.stringify({
+				id: document.getElementById("addId").value, 
+				ip: document.getElementById("addIp").value, 
+				alias: document.getElementById("addAlias").value, 
+				group_id: document.getElementById("addGroup").value, 
+				password: document.getElementById("addPass").value,
+				mode: document.getElementById("editMode").value
+			})
+		}); 
+		loadClients(); 
+		bootstrap.Modal.getInstance(document.getElementById('addModal')).hide(); 
+	}
+    async function removeClient(ip) { showModalConfirm(`Are you sure to delete ${ip}?`, async () => { await fetch("/api/client/remove",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({ip})}); if(ip===curClient) location.reload(); showToast("Deleted"); loadClients(); }); }
     async function batchDeleteClients() { 
         let ips = getSelectedIPs(); 
         
@@ -2413,7 +1752,7 @@
             return;
         }
 
-        showModalConfirm(`Are you sure you want to delete the selected ${ips.length} hosts?`, async () => { 
+        showModalConfirm(`Are you sure to delete selected ${ips.length} hosts?`, async () => { 
             try {
                 await Promise.all(ips.map(ip => fetch("/api/client/remove", {
                     method: "POST",
@@ -2423,7 +1762,6 @@
                 
                 showToast("Delete successful");
                 
-                // Clear select all checkbox after deletion
                 let selectAllCheckbox = document.getElementById('selectAllClients');
                 if(selectAllCheckbox) selectAllCheckbox.checked = false;
 
@@ -2434,162 +1772,127 @@
         }); 
     }
     
-    async function dlCfg() { 
-        let c = {
-            port: document.getElementById("cfgPort").value, 
-            password: document.getElementById("cfgPass").value, 
-            autostart: document.getElementById("cfgAutostart").checked, 
-            passive_mode: document.getElementById("cfgPassiveMode").checked, 
-            server_addr: document.getElementById("cfgServerAddr").value, 
-            server_port: document.getElementById("cfgServerPort").value, 
-            server_pass: document.getElementById("cfgServerPass").value, 
-            check_interval: parseInt(document.getElementById("cfgCheckInterval").value) || 30
-        }; 
-        
-        let b = await(await fetch("/api/generate_config", {
-            method:"POST",
-            headers:{"Content-Type":"application/json"},
-            body:JSON.stringify(c)
-        })).blob(); 
-        
-        let a = document.createElement('a'); 
-        a.href = URL.createObjectURL(b); 
-        a.download = "config.dat"; 
-        a.click(); 
-    }
+    async function dlCfg() { let c={port:document.getElementById("cfgPort").value, password:document.getElementById("cfgPass").value, autostart:document.getElementById("cfgAutostart").checked, passive_mode:document.getElementById("cfgPassiveMode").checked, server_addr:document.getElementById("cfgServerAddr").value, server_port:document.getElementById("cfgServerPort").value, server_pass:document.getElementById("cfgServerPass").value, check_interval: parseInt(document.getElementById("cfgCheckInterval").value) || 30}; let b=await(await fetch("/api/generate_config",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(c)})).blob(); let a=document.createElement('a'); a.href=URL.createObjectURL(b); a.download="config.dat"; a.click(); }
     
-    let groupsRaw = []; // Store raw group data from backend
-    let groupsTree =[]; // Tree structure
+	let groupsRaw = []; 
+	let groupsTree = []; 
 
-    async function loadGroups() { 
-        let r = await fetch("/api/groups"); 
-        groupsRaw = await r.json(); 
-        buildGroupTree();
-        renderClientList(allClientsCache); // Re-render list
-        updateGroupSelects(); // Update dropdowns
-    }
-    
-    function buildGroupTree() {
-        let map = {};
-        groupsRaw.forEach(g => { g.children = []; map = g; });
-        groupsTree =[];
-        groupsRaw.forEach(g => {
-            if (g.parent_id && map) {
-                map.children.push(g);
-            } else {
-                groupsTree.push(g);
-            }
-        });
-        // Ensure tree is also sorted
-        const sortFn = (a, b) => a.sort_order - b.sort_order;
-        groupsTree.sort(sortFn);
-        groupsRaw.forEach(g => g.children.sort(sortFn));
-    }
+	async function loadGroups() { 
+		let r = await fetch("/api/groups"); 
+		groupsRaw = await r.json(); 
+		buildGroupTree();
+		renderClientList(allClientsCache); 
+		updateGroupSelects(); 
+	}
+	
+	function buildGroupTree() {
+		let map = {};
+		groupsRaw.forEach(g => { g.children = []; map[g.id] = g; });
+		groupsTree = [];
+		groupsRaw.forEach(g => {
+			if (g.parent_id && map[g.parent_id]) {
+				map[g.parent_id].children.push(g);
+			} else {
+				groupsTree.push(g);
+			}
+		});
+		const sortFn = (a,b) => a.sort_order - b.sort_order;
+		groupsTree.sort(sortFn);
+		groupsRaw.forEach(g => g.children.sort(sortFn));
+	}
 
     function renderGroupList() {
-        document.getElementById("groupList").innerHTML = groups.map(g => `
-            <div class="list-group-item d-flex justify-content-between align-items-center p-2">
-                <span class="text-truncate" title="${g}">${g}</span>
-                <div class="d-flex gap-2">
-                    <!-- Modified here: Call openRenameModal -->
-                    <button class="btn btn-sm text-primary p-0" onclick="openRenameModal('${g}')" title="Rename">
-                        <i class="fas fa-edit"></i>
-                    </button>
-                    <button class="btn btn-sm text-danger p-0" onclick="deleteGroup('${g}')" title="Delete">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-            </div>
-        `).join('');
-    }
-    
-    function openRenameModal(oldName) {
-        document.getElementById('renameOldName').value = oldName;
-        document.getElementById('renameOldNameDisplay').value = oldName;
-        document.getElementById('renameNewName').value = oldName; // Pre-fill old name for easy edit
-        
-        // Show modal
-        const modal = new bootstrap.Modal(document.getElementById('groupRenameModal'));
-        modal.show();
-        
-        // Auto focus input
-        setTimeout(() => document.getElementById('renameNewName').focus(), 500);
-    }
+		document.getElementById("groupList").innerHTML = groups.map(g => `
+			<div class="list-group-item d-flex justify-content-between align-items-center p-2">
+				<span class="text-truncate" title="${g}">${g}</span>
+				<div class="d-flex gap-2">
+					<button class="btn btn-sm text-primary p-0" onclick="openRenameModal('${g}')" title="Rename">
+						<i class="fas fa-edit"></i>
+					</button>
+					<button class="btn btn-sm text-danger p-0" onclick="deleteGroup('${g}')" title="Delete">
+						<i class="fas fa-times"></i>
+					</button>
+				</div>
+			</div>
+		`).join('');
+	}
+	
+	function openRenameModal(oldName) {
+		document.getElementById('renameOldName').value = oldName;
+		document.getElementById('renameOldNameDisplay').value = oldName;
+		document.getElementById('renameNewName').value = oldName; 
+		
+		const modal = new bootstrap.Modal(document.getElementById('groupRenameModal'));
+		modal.show();
+		
+		setTimeout(() => document.getElementById('renameNewName').focus(), 500);
+	}
 
-    
-    async function confirmRenameGroup() {
-        const oldName = document.getElementById('renameOldName').value;
-        const newName = document.getElementById('renameNewName').value.trim();
-        
-        // Simple validation
-        if (!newName) {
-            showToast("New name cannot be empty", "error");
-            return;
-        }
-        if (newName === oldName) {
-            bootstrap.Modal.getInstance(document.getElementById('groupRenameModal')).hide();
-            return;
-        }
-        if (groups.includes(newName)) {
-            showToast("This group name already exists", "error");
-            return;
-        }
+	
+	async function confirmRenameGroup() {
+		const oldName = document.getElementById('renameOldName').value;
+		const newName = document.getElementById('renameNewName').value.trim();
+		
+		if (!newName) {
+			showToast("New name cannot be empty", "error");
+			return;
+		}
+		if (newName === oldName) {
+			bootstrap.Modal.getInstance(document.getElementById('groupRenameModal')).hide();
+			return;
+		}
+		if (groups.includes(newName)) {
+			showToast("Group name already exists", "error");
+			return;
+		}
 
-        // Close rename popup
-        const renameModal = bootstrap.Modal.getInstance(document.getElementById('groupRenameModal'));
-        renameModal.hide();
-        
-        showToast("Processing rename...", "info");
+		const renameModal = bootstrap.Modal.getInstance(document.getElementById('groupRenameModal'));
+		renameModal.hide();
+		
+		showToast("Processing rename...", "info");
 
-        try {
-            // Create new group
-            await fetch("/api/group/add", {
-                method: "POST", headers: {"Content-Type": "application/json"}, 
-                body: JSON.stringify({name: newName})
-            });
+		try {
+			await fetch("/api/group/add", {
+				method: "POST", headers: {"Content-Type": "application/json"}, 
+				body: JSON.stringify({name: newName})
+			});
 
-            // Move all hosts from old group to new group
-            // Note: This needs to iterate all hosts, requires allClientsCache to be up-to-date
-            // Best to re-fetch the latest client list first to prevent cache expiration
-            let r = await fetch("/api/clients?t=" + Date.now());
-            let latestClients = await r.json();
-            
-            let clientsToMove = latestClients.filter(c => c.group === oldName);
-            
-            // Execute move operations in parallel
-            const movePromises = clientsToMove.map(c => 
-                fetch("/api/client/add", {
-                    method: "POST", headers: {"Content-Type": "application/json"},
-                    body: JSON.stringify({
-                        id: c.id, 
-                        ip: c.ip, 
-                        alias: c.alias, 
-                        password: c.password,
-                        group: newName, 
-                        mode: c.mode
-                    })
-                })
-            );
-            
-            await Promise.all(movePromises);
+			let r = await fetch("/api/clients?t="+Date.now());
+			let latestClients = await r.json();
+			
+			let clientsToMove = latestClients.filter(c => c.group === oldName);
+			
+			const movePromises = clientsToMove.map(c => 
+				fetch("/api/client/add", {
+					method: "POST", headers: {"Content-Type": "application/json"},
+					body: JSON.stringify({
+						id: c.id, 
+						ip: c.ip, 
+						alias: c.alias, 
+						password: c.password,
+						group: newName, 
+						mode: c.mode
+					})
+				})
+			);
+			
+			await Promise.all(movePromises);
 
-            // Delete old group
-            await fetch("/api/group/delete", {
-                method: "POST", headers: {"Content-Type": "application/json"}, 
-                body: JSON.stringify({name: oldName})
-            });
+			await fetch("/api/group/delete", {
+				method: "POST", headers: {"Content-Type": "application/json"}, 
+				body: JSON.stringify({name: oldName})
+			});
 
-            showToast(`Successfully renamed group to "${newName}"`);
-            
-            // Refresh UI
-            await loadGroups(); 
-            await loadClients(); 
+			showToast(`Group renamed to "${newName}"`);
+			
+			await loadGroups();
+			await loadClients();
 
-        } catch (e) {
-            console.error(e);
-            showToast("Rename operation failed, please check console", "error");
-        }
-    }
+		} catch (e) {
+			console.error(e);
+			showToast("Rename failed, check console", "error");
+		}
+	}
 
     async function addGroup() { 
         let n = document.getElementById("newGroupName").value; 
@@ -2599,24 +1902,23 @@
                 headers: {"Content-Type": "application/json"}, 
                 body: JSON.stringify({name: n})
             }); 
-            document.getElementById("newGroupName").value = ""; // Clear input box
+            document.getElementById("newGroupName").value = "";
             loadGroups(); 
         }
     }
-    
-    async function deleteGroup(id) {
-        if(!confirm("Are you sure you want to delete this group and its subgroups? Hosts inside will be moved to the root directory.")) return;
-        await fetch("/api/group/delete", {
-            method: "POST", headers: {"Content-Type":"application/json"},
-            body: JSON.stringify({ id: id })
-        });
-        loadGroups();
-        loadClients();
-    }
-    
-    function renameGroup(oldName) {
-        // Use prompt, simple and avoids layering issues
-        let newName = prompt("Please enter the new group name:", oldName);
+	
+	async function deleteGroup(id) {
+		if(!confirm("Delete this group and its sub-groups? Hosts will be moved to root.")) return;
+		await fetch("/api/group/delete", {
+			method: "POST", headers: {"Content-Type":"application/json"},
+			body: JSON.stringify({ id: id })
+		});
+		loadGroups();
+		loadClients();
+	}
+	
+	function renameGroup(oldName) {
+        let newName = prompt("Enter new group name:", oldName);
         
         if (newName && newName.trim() !== "" && newName !== oldName) {
             newName = newName.trim();
@@ -2624,19 +1926,16 @@
             
             (async () => {
                 try {
-                    // Create new group
                     await fetch("/api/group/add", {
                         method: "POST", headers: {"Content-Type": "application/json"}, 
                         body: JSON.stringify({name: newName})
                     });
 
-                    // Find all hosts of old group, and update them to new group
                     let clientsToMove = allClientsCache.filter(c => c.group === oldName);
                     
                     for (let c of clientsToMove) {
                         await fetch("/api/client/add", {
                             method: "POST", headers: {"Content-Type": "application/json"},
-                            // Keep other attributes unchanged, only modify group
                             body: JSON.stringify({
                                 id: c.id, 
                                 ip: c.ip, 
@@ -2648,7 +1947,6 @@
                         });
                     }
 
-                    // Delete old group
                     await fetch("/api/group/delete", {
                         method: "POST", headers: {"Content-Type": "application/json"}, 
                         body: JSON.stringify({name: oldName})
@@ -2656,7 +1954,7 @@
 
                     showToast("Rename successful");
                     loadGroups();
-                    loadClients(); // Refresh host list to show new group
+                    loadClients(); 
                 } catch (e) {
                     showToast("Rename failed: " + e, "error");
                     console.error(e);
@@ -2664,119 +1962,61 @@
             })();
         }
     }
-    
+	
     function updateGroupSelects() {
-        const s = document.getElementById("addGroup");
-        if(!s) return;
-        
-        let html = '<option value="">Root Directory (No Group)</option>';
-        
-        // Recursively generate indented options
-        function buildOptions(nodes, depth) {
-            nodes.forEach(g => {
-                let prefix = "&nbsp;".repeat(depth * 4) + (depth > 0 ? "└─ " : "");
-                html += `<option value="${g.id}">${prefix}${g.name}</option>`;
-                if (g.children) buildOptions(g.children, depth + 1);
-            });
-        }
-        
-        buildOptions(groupsTree, 0);
-        s.innerHTML = html;
-    }
+		const s = document.getElementById("addGroup");
+		if(!s) return;
+		
+		let html = '<option value="">Root (No group)</option>';
+		
+		function buildOptions(nodes, depth) {
+			nodes.forEach(g => {
+				let prefix = "&nbsp;".repeat(depth * 4) + (depth > 0 ? "└─ " : "");
+				html += `<option value="${g.id}">${prefix}${g.name}</option>`;
+				if (g.children) buildOptions(g.children, depth + 1);
+			});
+		}
+		
+		buildOptions(groupsTree, 0);
+		s.innerHTML = html;
+	}
 
     // USB
-    let usbPage = 1, usbTotal = 0;
-    
+    let usbPage=1, usbTotal=0;
     async function loadUSBRecords() {
         let q = `?page=${usbPage}&page_size=${document.getElementById("usbPageSize").value}&client_id=${document.getElementById("usbClientFilter").value}&keyword=${encodeURIComponent(document.getElementById("usbKeyword").value)}`;
-        if(document.getElementById("usbStart").value) q += `&start_date=${document.getElementById("usbStart").value}`;
-        if(document.getElementById("usbEnd").value) q += `&end_date=${document.getElementById("usbEnd").value}`;
-        
-        let res = await (await fetch("/api/usb/records" + q)).json();
-        usbTotal = res.total; 
-        document.getElementById("usbPageInfo").innerText = `Page ${usbPage} / Total ${Math.ceil(usbTotal/document.getElementById("usbPageSize").value) || 1} pages`;
-        
-        document.getElementById("usbRecordsBody").innerHTML = !res.data || !res.data.length ? '<tr><td colspan="6" class="text-center text-muted py-3">No records</td></tr>' : res.data.map(r => {
-            let c = clientDataMap, cn = c ? `${c.ip} (${r.client_ip})` : r.client_ip;
-            let actionText = r.action === '插入' ? 'Plug in' : r.action;
-            let actionBadgeClass = r.action === '插入' ? 'bg-success' : 'bg-warning text-dark';
-            return `<tr><td class="ps-3 small font-monospace">${r.timestamp}</td><td title="${cn}"><div class="text-truncate" style="max-width:120px">${cn}</div></td><td><span class="badge ${actionBadgeClass}">${actionText}</span></td><td class="fw-bold">${r.device_name}</td><td>${r.model||'-'}</td><td class="font-monospace small text-muted">${r.volume_id||'-'}</td></tr>`;
+        if(document.getElementById("usbStart").value) q+=`&start_date=${document.getElementById("usbStart").value}`;
+        if(document.getElementById("usbEnd").value) q+=`&end_date=${document.getElementById("usbEnd").value}`;
+        let res = await (await fetch("/api/usb/records"+q)).json();
+        usbTotal = res.total; document.getElementById("usbPageInfo").innerText = `Page ${usbPage} / ${Math.ceil(usbTotal/document.getElementById("usbPageSize").value)||1} Pages`;
+        document.getElementById("usbRecordsBody").innerHTML = !res.data||!res.data.length ? '<tr><td colspan="6" class="text-center text-muted py-3">No records</td></tr>' : res.data.map(r=>{
+            let c=clientDataMap[r.client_ip], cn=c?`${c.ip} (${r.client_ip})`:r.client_ip;
+            return `<tr><td class="ps-3 small font-monospace">${r.timestamp}</td><td title="${cn}"><div class="text-truncate" style="max-width:120px">${cn}</div></td><td><span class="badge ${r.action==='Insert' || r.action==='插入'?'bg-success':'bg-warning text-dark'}">${r.action}</span></td><td class="fw-bold">${r.device_name}</td><td>${r.model||'-'}</td><td class="font-monospace small text-muted">${r.volume_id||'-'}</td></tr>`;
         }).join('');
     }
-    
-    function updateUSBFilter() { 
-        let s = document.getElementById("usbClientFilter"), v = s.value; 
-        s.innerHTML = '<option value="">All</option>'; 
-        allClientsCache.forEach(c => s.innerHTML += `<option value="${c.id||c.ip}">${c.alias||c.ip}</option>`); 
-        s.value = v; 
-    }
-    
-    function changeUsbPage(d) { 
-        let n = usbPage + d; 
-        if(n >= 1 && n <= Math.ceil(usbTotal/document.getElementById("usbPageSize").value)) { 
-            usbPage = n; 
-            loadUSBRecords(); 
-        } 
-    }
-    
+    function updateUSBFilter() { let s = document.getElementById("usbClientFilter"), v=s.value; s.innerHTML='<option value="">All</option>'; allClientsCache.forEach(c=>s.innerHTML+=`<option value="${c.id||c.ip}">${c.alias||c.ip}</option>`); s.value=v; }
+    function changeUsbPage(d) { let n=usbPage+d; if(n>=1 && n<=Math.ceil(usbTotal/document.getElementById("usbPageSize").value)) { usbPage=n; loadUSBRecords(); } }
     async function exportUSB(m) {
-        let q = `?page=${m === 'all' ? 1 : usbPage}&page_size=${m === 'all' ? 100000 : document.getElementById("usbPageSize").value}&client_id=${document.getElementById("usbClientFilter").value}`;
-        let res = await (await fetch("/api/usb/records" + q)).json();
-        if(!res.data) return showToast("No data", "error");
-        
-        let rows =; 
-        res.data.forEach(r => { 
-            let c = clientDataMap; 
-            let actionText = r.action === '插入' ? 'Plug in' : r.action;
-            rows.push(`${r.timestamp}\t${c ? c.ip : r.client_ip}\t${actionText}\t${r.device_name}\t${r.model}\t${r.volume_id}`); 
-        });
-        
-        let b = new Uint8Array(rows.join("\r\n").length * 2 + 2); 
-        b = 0xFF; b = 0xFE; 
-        for(let i=0; i<rows.join("\r\n").length; i++) { 
-            let c = rows.join("\r\n").charCodeAt(i); 
-            b = c & 0xFF; 
-            b = (c>>8) & 0xFF; 
-        }
-        
-        let a = document.createElement("a"); 
-        a.href = URL.createObjectURL(new Blob(, {type:'text/csv;charset=utf-16le'})); 
-        a.download = "usb.csv"; 
-        a.click();
+        let q = `?page=${m==='all'?1:usbPage}&page_size=${m==='all'?100000:document.getElementById("usbPageSize").value}&client_id=${document.getElementById("usbClientFilter").value}`;
+        let res = await (await fetch("/api/usb/records"+q)).json();
+        if(!res.data) return showToast("No data","error");
+        let rows = ["Time\tIP\tAction\tDevice\tModel\tID"]; res.data.forEach(r=>{ let c=clientDataMap[r.client_ip]; rows.push(`${r.timestamp}\t${c?c.ip:r.client_ip}\t${r.action}\t${r.device_name}\t${r.model}\t${r.volume_id}`); });
+        let b = new Uint8Array(rows.join("\r\n").length*2+2); b[0]=0xFF; b[1]=0xFE; for(let i=0; i<rows.join("\r\n").length; i++) { let c=rows.join("\r\n").charCodeAt(i); b[i*2+2]=c&0xFF; b[i*2+3]=(c>>8)&0xFF; }
+        let a = document.createElement("a"); a.href=URL.createObjectURL(new Blob([b],{type:'text/csv;charset=utf-16le'})); a.download="usb.csv"; a.click();
     }
-    
     async function saveServerSettings() {
         try {
-            const res = await fetch("/api/config/update_settings", {
-                method:"POST", 
-                headers:{"Content-Type":"application/json"}, 
-                body:JSON.stringify({
-                    file_threshold: parseInt(document.getElementById('batchFileThreshold').value) || 10, 
-                    temp_file_ttl: parseInt(document.getElementById('tempFileTTL').value) || 60
-                })
-            });
-            if(res.ok) showToast("Settings saved"); else showToast("Save failed", "error");
-        } catch(e) { 
-            showToast("Error", "error"); 
-        }
+            const res = await fetch("/api/config/update_settings", {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify({file_threshold:parseInt(document.getElementById('batchFileThreshold').value)||10, temp_file_ttl:parseInt(document.getElementById('tempFileTTL').value)||60})});
+            if(res.ok) showToast("Settings saved"); else showToast("Save failed","error");
+        } catch(e) { showToast("Error","error"); }
     }
 
-    document.addEventListener('DOMContentLoaded', () => { 
-        loadClients(); 
-        loadGroups(); 
-        if(document.getElementById('cfgPassiveMode')) 
-            document.getElementById('cfgPassiveMode').addEventListener('change', function() { 
-                document.getElementById('passiveModeSettings').style.display = this.checked ? 'block' : 'none'; 
-            }); 
-    });
-    
-    // Ledger Logic 
-    
-    // Cache hardware info Key: client_id, Value: info_object
+    document.addEventListener('DOMContentLoaded', ()=>{ loadClients(); loadGroups(); if(document.getElementById('cfgPassiveMode')) document.getElementById('cfgPassiveMode').addEventListener('change', function() { document.getElementById('passiveModeSettings').style.display = this.checked ? 'block' : 'none'; }); });
+	
+
     let ledgerCache = {}; 
     let ledgerPage = 1;
 
-    // Helper: Targeted send request (does not change currently selected host)
     function sendReqTo(targetId, type, payload) {
         fetch("/api/send", {
             method: "POST",
@@ -2785,30 +2025,24 @@
         });
     }
 
-    // Open Modal
+    // Open modal
     function openLedgerModal() {
         const modal = new bootstrap.Modal(document.getElementById('ledgerModal'));
         modal.show();
         
-        // Render existing cache data first
         renderLedgerTable();
         
-        // Immediately trigger batch get latest info
-        // Slightly delay by 200ms to avoid animation stutter
         setTimeout(refreshLedgerInfo, 200); 
     }
 
-    // Batch request sys info of online hosts
+    // Batch request online host info
     function refreshLedgerInfo() {
         let count = 0;
         
-        // Iterate all clients in cache
         allClientsCache.forEach(c => {
             if (c.is_online) {
-                // Construct target ID (prefer id, fallback to ip, consistent with server logic)
                 let targetId = c.id || c.ip;
                 
-                // Send forward instruction directly via WebSocket
                 ws.send(JSON.stringify({
                     type: "forward_to_agent",
                     target_id: targetId,
@@ -2824,26 +2058,23 @@
         if(count > 0) {
             showToast(`Getting info for ${count} online hosts...`, "info");
         } else {
-            showToast("No online hosts currently", "warning");
+            showToast("No online hosts", "warning");
         }
     }
 
-    // Update cache after receiving WS message
     function updateLedgerCache(id, info) {
-        ledgerCache = info;
-        // If modal is open, refresh current page (debounce can optimize this, just refresh directly here)
+        ledgerCache[id] = info;
         if (document.getElementById('ledgerModal').classList.contains('show')) {
             renderLedgerTable();
         }
     }
 
-    // Helper: Get group full path (recursively find parent)
     function getGroupPath(groupId, legacyName) {
         if (!groupId) return legacyName || "Default Group";
         
-        let path =[];
+        let path = [];
         let currId = groupId;
-        let safety = 0; // Prevent infinite loop
+        let safety = 0; 
         
         while(currId && safety < 20) {
             let g = groupsRaw.find(x => x.id === currId);
@@ -2851,28 +2082,25 @@
                 path.unshift(g.name);
                 currId = g.parent_id;
             } else {
-                break; // Parent not found or invalid ID
+                break;
             }
             safety++;
         }
         
         return path.length > 0 ? path.join(" / ") : (legacyName || "Default Group");
     }
-    
-    // Render Table
+	
+    // Render table
     function renderLedgerTable() {
         const tbody = document.getElementById("ledgerTableBody");
         const searchText = document.getElementById("ledgerSearch").value.toLowerCase();
         const filterStatus = document.getElementById("ledgerFilter").value;
         const pageSize = parseInt(document.getElementById("ledgerPageSize").value);
 
-        // Filter Data
         let filtered = allClientsCache.filter(c => {
-            // Text Match
             let matchText = (c.alias||"").toLowerCase().includes(searchText) || 
                             c.ip.toLowerCase().includes(searchText) || 
                             (c.id||"").toLowerCase().includes(searchText);
-            // Status Match
             let matchStatus = true;
             if (filterStatus === 'online') matchStatus = c.is_online;
             if (filterStatus === 'offline') matchStatus = !c.is_online;
@@ -2880,33 +2108,29 @@
             return matchText && matchStatus;
         });
 
-        // Pagination Calculation
         const total = filtered.length;
         const totalPages = Math.ceil(total / pageSize) || 1;
         if (ledgerPage > totalPages) ledgerPage = totalPages;
         if (ledgerPage < 1) ledgerPage = 1;
         
-        document.getElementById("ledgerPageInfo").innerText = `Page ${ledgerPage} / Total ${totalPages} Pages (Total items: ${total})`;
+        document.getElementById("ledgerPageInfo").innerText = `Page ${ledgerPage} / ${totalPages} (Total: ${total})`;
 
         const start = (ledgerPage - 1) * pageSize;
         const pageData = filtered.slice(start, start + pageSize);
 
-        // Generate HTML
         if (pageData.length === 0) {
             tbody.innerHTML = '<tr><td colspan="7" class="text-center text-muted py-3">No matching data</td></tr>';
             return;
         }
 
         tbody.innerHTML = pageData.map(c => {
-            let info = ledgerCache || {};
-            // If offline, force show -
+            let info = ledgerCache[c.id || c.ip] || {};
             if (!c.is_online) info = {}; 
 
             let statusHtml = c.is_online 
                 ? '<span class="badge bg-success">Online</span>' 
                 : '<span class="badge bg-secondary">Offline</span>';
             
-           // Get Group Path
             let groupName = getGroupPath(c.group_id, c.group);
 
             return `<tr>
@@ -2922,13 +2146,11 @@
         }).join('');
     }
 
-    // Simple memory display format helper
+    // Simple memory format helper
     function parseMem(memStr) {
-        // Backend returns format usually "Total: 15.89 GB | Used..."
-        // Attempt to extract Total
         if(!memStr) return '-';
         let parts = memStr.split('|');
-        return parts || memStr;
+        return parts[0] || memStr;
     }
 
     function changeLedgerPage(d) {
@@ -2936,12 +2158,11 @@
         renderLedgerTable();
     }
 
-    // Export Function
+    // Export function
     function exportLedger(scope) {
         const searchText = document.getElementById("ledgerSearch").value.toLowerCase();
         const filterStatus = document.getElementById("ledgerFilter").value;
 
-        // Filter data
         let dataToExport = allClientsCache.filter(c => {
              let matchText = (c.alias||"").toLowerCase().includes(searchText) || 
                             c.ip.toLowerCase().includes(searchText) || 
@@ -2952,59 +2173,58 @@
             return matchText && matchStatus;
         });
 
-        // If "Export Page", slice it
         if (scope === 'current') {
             const pageSize = parseInt(document.getElementById("ledgerPageSize").value);
             const start = (ledgerPage - 1) * pageSize;
             dataToExport = dataToExport.slice(start, start + pageSize);
         }
 
-        // Build Header (use \t tab separator, better recognition in Excel)
-        let rows =;
+        let rows = ["Alias\tGroup\tIP\tID\tStatus\tOS\tCPU\tMemory"];
         
-        // Build Data Rows
         dataToExport.forEach(c => {
-            let info = ledgerCache || {};
-            // If offline and no cache, keep empty
-            if (!c.is_online && !ledgerCache) info = {};
+            let info = ledgerCache[c.id || c.ip] || {};
+            if (!c.is_online && !ledgerCache[c.id || c.ip]) info = {};
             
-            // Simple clean function, remove line breaks
-            const clean = (str) => (str || '-').toString().replace(//g, " ");
+            const clean = (str) => (str || '-').toString().replace(/[\r\n\t]/g, " ");
             
-            // Extract memory string
             let memStr = clean(info.memory);
-            if(memStr !== '-') memStr = memStr.split('|') || memStr; // Take only Total part
+            if(memStr !== '-') memStr = memStr.split('|')[0] || memStr; 
 
-            // Get Group Path
             let groupName = getGroupPath(c.group_id, c.group);
 
-            let row =;
+            let row = [
+                clean(c.alias),
+                clean(groupName),
+                clean(c.ip),
+                clean(c.id),
+                c.is_online ? "Online" : "Offline",
+                clean(info.os),
+                clean(info.cpu),
+                memStr
+            ];
             rows.push(row.join("\t"));
         });
 
-        // Binary Conversion (UTF-16LE + BOM)
         let content = rows.join("\r\n");
         let b = new Uint8Array(content.length * 2 + 2);
-        b = 0xFF; b = 0xFE; // BOM header
+        b[0] = 0xFF; b[1] = 0xFE; 
         
         for (let i = 0; i < content.length; i++) {
             let c = content.charCodeAt(i);
-            b = c & 0xFF;
-            b = (c >> 8) & 0xFF;
+            b[i * 2 + 2] = c & 0xFF;
+            b[i * 2 + 3] = (c >> 8) & 0xFF;
         }
 
-        // Download file
-        const blob = new Blob(, { type: 'text/csv;charset=utf-16le' });
+        const blob = new Blob([b], { type: 'text/csv;charset=utf-16le' });
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
-        link.download = `Device_Ledger_${new Date().toISOString().slice(0,10)}.csv`;
+        link.download = `Device_Inventory_${new Date().toISOString().slice(0,10)}.csv`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
     }
-    
-    function adjustQuality(rtt) {
-        // If user selects manual mode, exit directly, no auto adjustment
+	
+	function adjustQuality(rtt) {
         const mode = document.getElementById("qualitySelect").value;
         if (mode !== 'auto') return;
 
@@ -3018,20 +2238,18 @@
             autoQuality -= 5; autoScale -= 0.05;
         }
         
-        // Boundaries limitation
         if (autoQuality > 90) autoQuality = 90;
         if (autoQuality < 10) autoQuality = 10;
         if (autoScale > 1.0) autoScale = 1.0;
         if (autoScale < 0.3) autoScale = 0.3;
     }
-    
-    function manualQualityChange() {
+	
+	function manualQualityChange() {
         const mode = document.getElementById("qualitySelect").value;
         if(mode !== 'auto') showToast("Switched to manual quality mode");
         else showToast("Switched to auto quality mode");
     }
-    
-    document.getElementById("screenDisplay").ondragstart = function() { return false; };
+	document.getElementById("screenDisplay").ondragstart = function() { return false; };
 </script>
 </body>
 </html>
