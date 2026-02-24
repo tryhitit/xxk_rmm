@@ -1,18 +1,22 @@
 # xxk_rmm
 xxk rmm Agent is a self-contained Windows agent that enables remote administration, monitoring, and control of endpoints through a WebSocket-based management console. It runs as a Windows service in the background and supports both direct (active) and server-relayed (passive) connection modes.
 
-# Features
-Remote Desktop ¡ª Real-time screen capture streamed to the browser; supports adjustable JPEG quality and resolution scaling
-Remote Input Control ¡ª Full mouse (move, click, scroll) and keyboard control forwarded to the remote session
-Interactive Shell ¡ª Stateful command execution (maintains working directory across commands) with UTF-8 / GBK output decoding
-File Manager ¡ª Browse drives and directories, upload/download files, delete files and folders, execute files with optional UAC elevation
-File Pull ¡ª Download files from a URL directly to the remote machine with real-time progress reporting and cancellation support
-System Information ¡ª CPU, memory, disk usage and host metadata reported on demand
-Process Manager ¡ª List all running processes and kill them by PID
-USB Device Monitor ¡ª Real-time detection and logging of USB device insertion/removal events
-Password-Protected Access ¡ª WebSocket connections authenticated via a password header; web UI login page included
-Encrypted Configuration ¡ª Config file encrypted with AES-256-GCM; password and settings stored securely on disk
-Windows Service Support ¡ª Installs, starts, and stops as a native Windows service via kardianos/service
-Passive Mode (Reverse Connection) ¡ª Agent connects outbound to a management server, enabling access through NAT/firewalls without port forwarding
-Session-Aware Screen Capture ¡ª Spawns a child process in the active user session via WTSQueryUserToken / CreateProcessAsUser to capture the desktop correctly when running as SYSTEM
-Auto-restart Watchdog ¡ª Automatically respawns the child capture process if it dies
+# Overview
+Infinity RMM Agent is a self-contained Windows agent that enables remote administration, monitoring, and control of endpoints through a WebSocket-based management console. It runs as a Windows service in the background and supports both direct (active) and server-relayed (passive) connection modes.
+Features
+
+Remote Desktop â€” Real-time screen capture streamed to the browser; supports adjustable JPEG quality and resolution scaling
+Remote Input Control â€” Full mouse (move, click, scroll) and keyboard control forwarded to the remote session
+Interactive Shell â€” Stateful command execution (maintains working directory across commands) with UTF-8 / GBK output decoding
+File Manager â€” Browse drives and directories, upload/download files, delete files and folders, execute files with optional UAC elevation
+File Pull â€” Download files from a URL directly to the remote machine with real-time progress reporting and cancellation support
+System Information â€” CPU, memory, disk usage and host metadata reported on demand
+Process Manager â€” List all running processes and kill them by PID
+USB Device Monitor â€” Real-time detection and logging of USB device insertion/removal events
+Password-Protected Access â€” WebSocket connections authenticated via a password header; web UI login page included
+Encrypted Configuration â€” Config file encrypted with AES-256-GCM; password and settings stored securely on disk
+Windows Service Support â€” Installs, starts, and stops as a native Windows service via kardianos/service
+Passive Mode (Reverse Connection) â€” Agent connects outbound to a management server, enabling access through NAT/firewalls without port forwarding
+Session-Aware Screen Capture â€” Spawns a child process in the active user session via WTSQueryUserToken / CreateProcessAsUser to capture the desktop correctly when running as SYSTEM
+Auto-restart Watchdog â€” Automatically respawns the child capture process if it dies
+
