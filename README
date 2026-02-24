@@ -20,7 +20,8 @@ Passive Mode (Reverse Connection) — Agent connects outbound to a management se
 Session-Aware Screen Capture — Spawns a child process in the active user session via WTSQueryUserToken / CreateProcessAsUser to capture the desktop correctly when running as SYSTEM
 Auto-restart Watchdog — Automatically respawns the child capture process if it dies
 
-![Logo](https://github.com/tryhitit/xxk_rmm/blob/main/xxkrmm.png)
+![Logo](xxkrmm.png)
+
 
 
 
